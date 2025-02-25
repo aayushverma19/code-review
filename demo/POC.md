@@ -8,7 +8,7 @@
 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Steps for Golang Based Code Compilation](#steps-for-go-lang-based-code-compilation)
+- [Steps for Golang Based Code Compilation](#steps-for-golang-based-code-compilation)
 - [Final Output](#final-output)
 - [Contacts](#contacts)
 
