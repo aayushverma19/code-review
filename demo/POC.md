@@ -21,7 +21,7 @@ This Proof of Concept (POC) demonstrates how to perform Golang based code compil
 
 **Golang** - [Installing Golang on Linux](https://www.cyberciti.biz/faq/how-to-install-gol-ang-on-ubuntu-linux/)
 
-## Steps for Golang-Based Code Compilation
+## Steps for Golang Based Code Compilation
 
 **1. Clone the GoLang Project**
 
@@ -40,10 +40,9 @@ go build main.go
 ```
 
 ## Final Output
-Once the build is completed it will create an executable file for Employee-Api as shows in the below screenshot.
+Once the build is completed it will create an executable file (main) for Employee-Api as shows in the below screenshot.
 
-<img width="766" alt="image" src="https://github.com/user-attachments/assets/c97208ae-c022-4c20-a6a0-e3835053ef0a" />
-
+<img width="1014" alt="Screenshot 2025-02-25 at 2 51 57 PM" src="https://github.com/user-attachments/assets/e682968e-2650-4891-86db-b6b00e3dfd06" />
 
 
 ## Contacts
