@@ -19,7 +19,7 @@ This Proof of Concept (POC) demonstrates how to perform Golang based code compil
 
 ## Prerequisites
 
-**Golang** - [Installing Golang on Linux](https://www.cyberciti.biz/faq/how-to-install-gol-ang-on-ubuntu-linux/)
+**Golang** - [Installing Golang on Linux](https://github.com/snaatak-Zero-Downtime-Crew/Documentation/blob/main/Common/Software%20/Golang/Installation/README.MD)
 
 ## Steps for Golang Based Code Compilation
 
