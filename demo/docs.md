@@ -86,4 +86,4 @@ For more information, feedback, or assistance, feel free to contact:
 |-----------------------------------------------------------------------------|--------------------------------------------------|
 | [Go build installation](https://www.geeksforgeeks.org/how-to-build-and-install-go-program/) | Go build installation  |
 | [Go Build Documentation](https://www.digitalocean.com/community/tutorials/how-to-build-and-install-go-programs) | Go Build Documentation |
-| [POC of GoLang code compilation](https://github.com/MyGurukulam-p11/Documentation/blob/main/Application-CI-Design/GoLang-CI-Checks/Code-Compilation/POC.md) | POC of GoLang code compilation |
+| [POC of GoLang code compilation](https://github.com/snaatak-Zero-Downtime-Crew/Documentation/blob/Aayush-SCRUM-81/Application%20CI%20Design/GoLang%20CI%20Checks/Code%20Compilation/POC/README.md) | POC of GoLang code compilation |
