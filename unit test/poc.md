@@ -30,7 +30,9 @@ In this Document we are creating the POC of unit testing for the GoLang based AP
 
 ## Pre-requisite
 
-install go link
+**Go Installation:** Ensure Go (version greater than 1.21) is installed on your system.
+
+
 
 
 ## Run Time Dependency
