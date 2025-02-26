@@ -49,8 +49,8 @@ In this Document we are creating the POC of unit testing for the GoLang based AP
 ####  Cloning the Go Application
   First make a directory, then Within that directory clone the repository. 
   ```shell
-  mkdir snatak_p7
-  cd snatak_p7
+  mkdir Golang-testing
+  cd Golang-testing
   git clone https://github.com/OT-MICROSERVICES/employee-api.git  
   cd employee-api/routes/
   ```
