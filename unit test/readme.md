@@ -64,7 +64,22 @@ CI tools provide feedback on whether tests pass or fail, along with logs, allowi
 
 ## General Workflow
 
-#images **********
+![image](https://github.com/user-attachments/assets/8aeca020-0025-4788-aa1c-e542816aa069)
+
+**Description of Flow Diagram**
+
+| **Steps** | **Description** |
+| ------------- | --------------- |
+| **Directory** | Create a new directory named `snatak_p7` |
+| **Clone Git Repository** | Clone the Git repository `employee-API.git` into the current directory |
+| **Install Go** | Install Go programming language using the Snap package manager |
+| **Run Unit Tests** | Execute unit tests for the current codebase |
+| **Run All Tests** | Run tests recursively for all packages |
+| **Run Tests with Verbose and Coverage** | Execute tests with verbose output and coverage information |
+| **Generate Coverage Profile** | Create a coverage profile file `coverage.out` for further analysis |
+| **Generate HTML Report** | Convert the coverage profile to an HTML report for detailed visualization |
+| **Completion** | The flow is completed, and the necessary steps for testing and coverage analysis have been executed |
+
 
 ---
 
