@@ -139,7 +139,7 @@ By incorporating CI into your Golang development lifecycle, you ensure that unit
 
 ## References
 
-# CI and Unit Testing Documentation Links
+# Unit Testing Documentation Links
 
 | Tool              | Documentation Link                                                     |
 |-------------------|------------------------------------------------------------------------|
