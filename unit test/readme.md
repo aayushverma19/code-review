@@ -70,7 +70,7 @@ CI tools provide feedback on whether tests pass or fail, along with logs, allowi
 
 | **Steps** | **Description** |
 | ------------- | --------------- |
-| **Directory** | Create a new directory named `snatak_p7` |
+| **Directory** | Create a new directory named `Golang-testing` |
 | **Clone Git Repository** | Clone the Git repository `employee-API.git` into the current directory |
 | **Install Go** | Install Go programming language using the Snap package manager |
 | **Run Unit Tests** | Execute unit tests for the current codebase |
