@@ -17,7 +17,6 @@
   - [Install Prerequisites](#Install-Prerequisites)
   - [Run the Tests](#Run-the-test)
   - [Generating the report](#Generating-the-report)
-  
 - [Conclusion](#Conclusion)
 - [Contact](#Contact)
 - [Refrence](#Refrence)
@@ -42,20 +41,6 @@ install go link
 
 
 ---
-
-## Performing Unit Testing
- After cloning the repo to the system we run the below command 
-
- ```bash
-go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
-```
-This command will start executing unit tests.
-
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/4faf55f1-8ae5-40fc-87e2-44c73a17dc98" />
-
-
----
-
 
 ## Steps of unit testing  
 
