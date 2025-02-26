@@ -11,7 +11,13 @@
  
 - [Introduction](#Introduction)
 - [Pre-requisite](#Pre-requisite)
-- [Performing Unit Testing](#Performing-Unit-Testing)
+- [Run Time Dependancy](#run-time-dependency)
+- [Steps of unit testing](#Steps-of-unit-testing)
+  - [Cloning the Go Application](#Cloning-the-Go-Application)
+  - [Install Prerequisites](#Install-Prerequisites)
+  - [Run the Tests](#Run-the-test)
+  - [Generating the report](#Generating-the-report)
+  
 - [Conclusion](#Conclusion)
 - [Contact](#Contact)
 - [Refrence](#Refrence)
