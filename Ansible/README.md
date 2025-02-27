@@ -15,6 +15,9 @@
 3. [**Why**](#why)
 4. [**Steps for creating Ansible role**](#Steps-for-creating-ansible-role)
 5. [**Folder Structure**](#folder-structure)
+         * [**Creating a Role**](#creating-a-role)
+         * [**Folder Structure**](#folder-strucyure)
+         * [**Run playbook**](#run-playbook)
 5. [**Steps to run playbook**](#steps-to-run-playbook)
 8. [**Conclusion**](#conclusion)
 9. [**Contact Information**](#contact-information)
@@ -42,6 +45,13 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 
 # Steps for creating Ansible role
 
+# Creating a Role
+
+To create a new role, you can use the ansible-galaxy command:
+
+``` sh
+ansible-galaxy init role_name 
+```
 
 
 # Folder Structure
@@ -49,7 +59,7 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 ![image](https://github.com/user-attachments/assets/3424fd07-fd9b-464c-a0c3-c3dd526eb823)
 
 
-# Steps to run playbook
+# Run playbook
 
 ``` sh
 ansible-playbook -i <inventory-file> <playbook-name>
