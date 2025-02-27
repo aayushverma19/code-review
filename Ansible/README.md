@@ -48,8 +48,7 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 
 # Folder Structure
 
-![image](https://github.com/user-attachments/assets/899ee4f3-0dbd-4bec-94e2-85688bbf3ad3)
-
+![image](https://github.com/user-attachments/assets/3424fd07-fd9b-464c-a0c3-c3dd526eb823)
 
 
 # Steps to run playbook
@@ -75,5 +74,5 @@ Ansible Roles offer a modular approach to automate infrastructure, making deploy
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-| |  |
+| https://medium.com/@ngueaghotiodongrobertolandry/ansible-roles-7c46c82d13be |  |
 | | |
