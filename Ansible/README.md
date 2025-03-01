@@ -98,7 +98,7 @@ ansible-playbook -i <inventory-file> <playbook-name>
 
 ## Conclusion
 Ansible Roles offer a modular approach to automate infrastructure, making deployments efficient, consistent, and less error-prone.
-This guide illustrates the process of deploying SonarQube in a development environment through Ansible. By adhering to these instructions, you can effectively provision and set up SonarQube within your AWS infrastructure.
+This guide illustrates the process of deploying SonarQube in a development environment through Ansible. By adhering to these instructions, you can effectively provision and set up SonarQube.
 
 
 
