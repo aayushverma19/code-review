@@ -1,0 +1,159 @@
+---
+- name: Setup SonarQube Database
+  become: yes
+  hosts: localhost
+  vars:
+    sonarqube_version: "10.0.0.68432"
+    sonarqube_user: "ddsonar"
+    sonarqube_group: "ddsonar"
+    sonarqube_db: "ddsonarqube"
+    sonarqube_db_user: "ddsonar"
+    sonarqube_db_password: "mwd#2%#!!#%rgs"
+    sonarqube_install_dir: "/opt/sonarqube-{{ sonarqube_version }}"
+    sonarqube_service_name: "sonar"
+    sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
+    postgresql_version: "16"
+    sysctl_config:
+      - "vm.max_map_count=262144"
+      - "fs.file-max=65536"
+      - "ulimit -n 65536"
+      - "ulimit -u 4096"
+
+  tasks:
+    - name: Install required packages
+      package:
+        name: 
+          - openjdk-17-jdk
+          - postgresql
+          - postgresql-contrib
+          - python3-psycopg2
+          - zip
+        state: present
+        update_cache: yes
+
+    - name: Ensure PostgreSQL service is running
+      service:
+        name: postgresql
+        state: started
+        enabled: yes
+    
+    - name: Restart PostgreSQL
+      ansible.builtin.service:
+        name: postgresql
+        state: restarted
+
+    - name: Create PostgreSQL user if not exists
+      become: yes
+      ansible.builtin.shell: >
+        sudo -u postgres psql -tc "SELECT 1 FROM pg_roles WHERE rolname='{{ sonarqube_db_user }}'" | grep -q 1 || 
+        sudo -u postgres psql -c "CREATE USER {{ sonarqube_db_user }} WITH ENCRYPTED PASSWORD '{{ sonarqube_db_password }}';"
+      changed_when: false
+
+    - name: Ensure PostgreSQL user password is updated
+      ansible.builtin.command: >
+         sudo -u postgres psql -c "ALTER USER {{ sonarqube_db_user }} WITH ENCRYPTED PASSWORD '{{ sonarqube_db_password }}';"
+
+    - name: Create PostgreSQL database if not exists
+      become: yes
+      ansible.builtin.shell: >
+        sudo -u postgres psql -tc "SELECT 1 FROM pg_database WHERE datname='{{ sonarqube_db }}'" | grep -q 1 || 
+        sudo -u postgres psql -c "CREATE DATABASE {{ sonarqube_db }} OWNER {{ sonarqube_db_user }};"
+      changed_when: false
+
+    - name: Grant all privileges on database to user
+      ansible.builtin.command: >
+        sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE {{ sonarqube_db }} TO {{ sonarqube_db_user }};"
+    
+    - name: Download SonarQube zip file
+      get_url:
+        url: "{{ sonarqube_download_url }}"
+        dest: "/tmp/sonarqube-{{ sonarqube_version }}.zip"
+        mode: '0644'
+
+    - name: Extract SonarQube directly to /opt/
+      unarchive:
+        src: "/tmp/sonarqube-{{ sonarqube_version }}.zip"
+        dest: "/opt/"
+
+    - name: Remove extracted zip file
+      file:
+        path: "/tmp/sonarqube-{{ sonarqube_version }}.zip"
+        state: absent
+
+    - name: Create group '{{ sonarqube_group }}'
+      group:
+        name: "{{ sonarqube_group }}"
+        state: present
+
+    - name: Create user '{{ sonarqube_user }}'
+      user:
+        name: "{{ sonarqube_user }}"
+        group: "{{ sonarqube_group }}"
+        home: "{{ sonarqube_install_dir }}"
+        shell: /bin/bash
+        state: present
+
+    - name: Change ownership of SonarQube directory
+      file:
+        path: "{{ sonarqube_install_dir }}"
+        owner: "{{ sonarqube_user }}"
+        group: "{{ sonarqube_group }}"
+        recurse: yes
+
+    - name: Configure SonarQube database settings
+      blockinfile:
+        path: "{{ sonarqube_install_dir }}/conf/sonar.properties"
+        block: |
+          sonar.jdbc.username={{ sonarqube_db_user }}
+          sonar.jdbc.password={{ sonarqube_db_password }}
+          sonar.jdbc.url=jdbc:postgresql://localhost:5432/{{ sonarqube_db }}
+        state: present
+        insertbefore: EOF
+
+    - name: Ensure RUN_AS_USER is set before APP_NAME
+      lineinfile:
+        path: "{{ sonarqube_install_dir }}/bin/linux-x86-64/sonar.sh"
+        line: "RUN_AS_USER={{ sonarqube_user }}"
+        insertbefore: '^APP_NAME="SonarQube"'
+        state: present
+
+    - name: Create SonarQube systemd service file
+      copy:
+        dest: /etc/systemd/system/{{ sonarqube_service_name }}.service
+        content: |
+          [Unit]
+          Description=SonarQube service
+          After=syslog.target network.target
+
+          [Service]
+          Type=forking
+          ExecStart={{ sonarqube_install_dir }}/bin/linux-x86-64/sonar.sh start
+          ExecStop={{ sonarqube_install_dir }}/bin/linux-x86-64/sonar.sh stop
+          User={{ sonarqube_user }}
+          Group={{ sonarqube_group }}
+          Restart=always
+          LimitNOFILE=65536
+          LimitNPROC=4096
+
+          [Install]
+          WantedBy=multi-user.target
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reload systemd to apply the new service
+      systemd:
+        daemon_reload: yes
+
+    - name: Enable and start SonarQube service
+      systemd:
+        name: "{{ sonarqube_service_name }}"
+        state: started
+        enabled: yes
+
+    - name: Append sysctl configuration
+      blockinfile:
+        path: /etc/sysctl.conf
+        block: "{{ sysctl_config | join('\n') }}"
+        state: present
+        insertbefore: EOF
