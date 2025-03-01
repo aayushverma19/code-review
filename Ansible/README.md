@@ -24,14 +24,14 @@
 9. [**Contact Information**](#contact-information)
 10. [**References**](#references)
 
-# Introduction
+## Introduction
 Ansible is a powerful automation tool that lets you manage and configure your infrastructure efficiently. It uses a simple language called YAML to define tasks and playbooks.
 
-# What 
+## What 
 Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
 
 
-# Why Use Ansible Roles?
+## Why Use Ansible Roles?
 Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
 | **Reason**                     | **Description**                                                                                       |
@@ -83,23 +83,24 @@ ansible-galaxy init role_name
 ```
 
 
-# Folder Structure
+## Folder Structure
 
 ![image](https://github.com/user-attachments/assets/3424fd07-fd9b-464c-a0c3-c3dd526eb823)
 
 
-# Run playbook
+## Run playbook
 
 ``` sh
 ansible-playbook -i <inventory-file> <playbook-name>
 ```
 
-# Conclusion
+## Conclusion
 Ansible Roles offer a modular approach to automate infrastructure, making deployments efficient, consistent, and less error-prone.
+This guide illustrates the process of deploying SonarQube in a development environment through Ansible. By adhering to these instructions, you can effectively provision and set up SonarQube within your AWS infrastructure.
 
 
 
-#  Contact Information
+##  Contact Information
 
 
 | **Name**       | **Email Address**        |
@@ -107,7 +108,7 @@ Ansible Roles offer a modular approach to automate infrastructure, making deploy
 | Aayush Verma   | <aayush.verma@mygurukulam.co> |
 
 
-# References
+## References
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
