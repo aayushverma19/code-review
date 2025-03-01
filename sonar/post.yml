@@ -1,0 +1,36 @@
+---
+- name: Setup SonarQube Database
+  become: yes
+  hosts: localhost
+  vars:
+    sonarqube_version: "10.0.0.68432"
+    sonarqube_db: "ddsonarqube"
+    sonarqube_db_user: "ddsonar"
+    sonarqube_db_password: "mwd#2%#!!#%rgs"
+
+  tasks:
+      - name: Ensure PostgreSQL user exists
+        become: yes
+        become_user: postgres
+        community.postgresql.postgresql_user:
+          name: "{{ sonarqube_db_user }}"
+          password: "{{ sonarqube_db_password }}"
+          encrypted: yes
+          state: present
+
+      - name: Ensure PostgreSQL database exists
+        become: yes
+        become_user: postgres
+        community.postgresql.postgresql_db:
+          name: "{{ sonarqube_db }}"
+          owner: "{{ sonarqube_db_user }}"
+          state: present
+
+      - name: Grant all privileges on database to user
+        become: yes
+        become_user: postgres
+        community.postgresql.postgresql_privs:
+          db: "{{ sonarqube_db }}"
+          roles: "{{ sonarqube_db_user }}"
+          type: database
+          privs: ALL
