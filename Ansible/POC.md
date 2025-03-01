@@ -21,9 +21,8 @@ Sets the remote user for SSH connections to 'ubuntu'
 remote_user = ubuntu
 
 [inventory]
-# enable inventory plugins, default: 'host_list', 'script', 'auto', 'yaml', 'ini', 'toml'
-enable_plugins = aws_ec2, host_list, virtualbox, yaml, constructed, script, auto, ini, toml
-```
+# enable inventory plugins
+enable_plugins = aws_ec2,
 
 > [!NOTE]
 >Ensure that for dynamic inventory you have the necessary AWS credentials configured in AWS CLI or an IAM role on the node. 
