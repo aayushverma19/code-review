@@ -44,6 +44,36 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 | **Improve Consistency and Compliance** | Standardizes configurations, ensuring uniformity across environments and aiding regulatory compliance. |
 
 
+## Flow Diagram
+
+* This diagram should help you visualize the sequence of tasks in the Ansible role for setting up SonarQube.
+
+![Screenshot 2024-02-05 030520](https://github.com/avengers-p7/Documentation/assets/156056344/a90a22e7-1401-43ac-9487-7b19fc282764)
+
+***
+## Pre-requisites
+
+Before using this Ansible role to set up Jenkins, ensure that the following prerequisites are met:
+
+1. **Ansible:**
+   - Ansible must be installed on the control machine from which you plan to run the playbook. If Ansible is not installed, you can install it using this [link](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) . Version used for POC : ansible 2.10.8
+
+
+### Ansible 
+![ansible_logo_icon_169596](https://github.com/avengers-p7/Documentation/assets/156056344/21281851-6cfa-4b18-aee4-8812e193dc62)
+
+Ansible is an open-source automation tool that simplifies and accelerates IT infrastructure management, application deployment, and task automation. Employing a declarative language, Ansible enables users to define desired states for systems and applications, automating complex workflows efficiently. With agentless architecture, it connects to remote systems over SSH or other protocols, making it versatile and easy to implement. 
+
+
+2. **SSH Access to Target Servers:**
+   - Ensure that you have SSH access to the target servers where SonarQube will be installed.
+
+***
+
+## SonarQube 
+SonarQube is a leading open-source platform for continuous inspection of code quality. It analyzes codebases, identifies bugs, security vulnerabilities, and code smells. Offering a comprehensive view of code health, SonarQube assists development teams in maintaining high-quality software, ensuring robust security, and fostering continuous improvement in codebases.
+
+
 # Steps for creating Ansible role
 
 # Creating a Role
