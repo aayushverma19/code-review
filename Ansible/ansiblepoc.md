@@ -25,11 +25,11 @@ Ansible is a lightweight, agentless automation tool that leverages SSH for Linux
 
 | Requirement            | Details |
 |------------------------|---------|
-| **Control Node**      | |
+| **Control Node**      | Runs Ansible and manages all nodes |
 | OS                    | Linux-based OS (Ubuntu, CentOS, RHEL, Amazon Linux, etc.) |
 | Python                | Python 3.x installed (`python3 --version`) |
 | Pip                   | `pip` installed (`pip3 --version`) |
-| **Managed Nodes**     | |
+| **Managed Nodes**     | Machines Ansible controls. SSH/WinRM should be enabled, and users must have execution permissions. |
 | SSH Access            | Enabled for Linux-based systems |
 | WinRM                 | Enabled for Windows-based systems |
 | User Permissions      | Proper user permissions to execute tasks (sudo or root access) |
