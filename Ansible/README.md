@@ -25,7 +25,8 @@
 10. [**References**](#references)
 
 ## Introduction
-Ansible is a powerful automation tool that lets you manage and configure your infrastructure efficiently. It uses a simple language called YAML to define tasks and playbooks.
+This role is designed to automate the installation and configuration of SonarQube on target ubuntu servers. Whether you're setting up SonarQube for standalone code analysis or to integrate with continuous integration/continuous delivery solution, or other purposes, this role aims to simplify the process.
+
 
 ## What 
 Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
