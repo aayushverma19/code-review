@@ -41,14 +41,6 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 | **Accelerate Deployment Times**  | Speeds up deployments by reusing predefined tasks and configurations.                                |
 | **Improve Consistency and Compliance** | Standardizes configurations, ensuring uniformity across environments and aiding regulatory compliance. |
 
-
-## Flow Diagram
-
-* This diagram should help you visualize the sequence of tasks in the Ansible role for setting up SonarQube.
-
-![Screenshot 2024-02-05 030520](https://github.com/avengers-p7/Documentation/assets/156056344/a90a22e7-1401-43ac-9487-7b19fc282764)
-
-***
 ## Pre-requisites
 
 Before using this Ansible role to set up Jenkins, ensure that the following prerequisites are met:
@@ -65,6 +57,16 @@ Ansible is an open-source automation tool that simplifies and accelerates IT inf
 
 2. **SSH Access to Target Servers:**
    - Ensure that you have SSH access to the target servers where SonarQube will be installed.
+
+***
+
+
+
+## Flow Diagram
+
+* This diagram should help you visualize the sequence of tasks in the Ansible role for setting up SonarQube.
+
+![Screenshot 2024-02-05 030520](https://github.com/avengers-p7/Documentation/assets/156056344/a90a22e7-1401-43ac-9487-7b19fc282764)
 
 ***
 
