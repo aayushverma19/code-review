@@ -1,0 +1,161 @@
+- name: Setup SonarQube Database
+  become: yes
+  hosts: localhost
+  tasks:
+    - name: Install required packages
+      package:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop:
+        - openjdk-17-jdk
+        - postgresql
+        - postgresql-contrib
+        - python3-psycopg2
+        - zip
+
+    - name: Ensure PostgreSQL service is running
+      service:
+        name: postgresql
+        state: started
+        enabled: yes
+    
+    - name: Replace peer with md5 in pg_hba.conf
+      ansible.builtin.lineinfile:
+        path: /etc/postgresql/16/main/pg_hba.conf
+        regexp: '^local\s+all\s+postgres\s+md5'
+        line: 'local   all             postgres          peer'
+        backup: yes
+
+    - name: Restart PostgreSQL
+      ansible.builtin.service:
+        name: postgresql
+        state: restarted
+
+    - name: Create PostgreSQL user ddsonar if not exists
+      become: yes
+      ansible.builtin.shell: >
+        sudo -u postgres psql -tc "SELECT 1 FROM pg_roles WHERE rolname='ddsonar'" | grep -q 1 || 
+        sudo -u postgres psql -c "CREATE USER ddsonar WITH ENCRYPTED PASSWORD 'mwd#2%#!!#%rgs';"
+      changed_when: false
+
+    - name: Create PostgreSQL user ddsonar
+      become: yes
+      ansible.builtin.command: >
+         sudo -u postgres psql -c "ALTER USER ddsonar WITH ENCRYPTED PASSWORD 'mwd#2%#!!#%rgs';"
+
+    - name: Create PostgreSQL database ddsonarqube if not exists
+      become: yes
+      ansible.builtin.shell: >
+        sudo -u postgres psql -tc "SELECT 1 FROM pg_database WHERE datname='ddsonarqube'" | grep -q 1 || 
+        sudo -u postgres psql -c "CREATE DATABASE ddsonarqube OWNER ddsonar;"
+      changed_when: false
+
+    - name: Grant all privileges on ddsonarqube to ddsonar
+      become: yes
+      ansible.builtin.command: >
+        sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE ddsonarqube TO ddsonar;"
+    
+    - name: Download SonarQube zip file
+      get_url:
+        url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.0.0.68432.zip"
+        dest: "/tmp/sonarqube-10.0.0.68432.zip"
+        mode: '0644'
+
+    - name: Extract SonarQube directly to /opt/
+      unarchive:
+        src: "/tmp/sonarqube-10.0.0.68432.zip"
+        dest: "/opt/"
+
+    - name: Remove extracted zip file
+      file:
+        path: "/tmp/sonarqube-10.0.0.68432.zip"
+        state: absent
+
+    - name: Create group 'ddsonar'
+      group:
+        name: ddsonar
+        state: present
+
+    - name: Create user 'ddsonar' with home directory /opt/sonarqube and group 'ddsonar'
+      user:
+        name: ddsonar
+        group: ddsonar
+        home: /opt/sonarqube-10.0.0.68432
+        shell: /bin/bash
+        state: present
+
+    - name: Change ownership of /opt/sonarqube-10.0.0.68432 to ddsonar
+      file:
+        path: /opt/sonarqube-10.0.0.68432
+        owner: ddsonar
+        group: ddsonar
+        recurse: yes
+
+    - name: Append SonarQube database settings to the end of the file
+      blockinfile:
+        path: /opt/sonarqube-10.0.0.68432/conf/sonar.properties
+        block: |
+          sonar.jdbc.username=ddsonar
+          sonar.jdbc.password=mwd#2%#!!#%rgs
+          sonar.jdbc.url=jdbc:postgresql://localhost:5432/ddsonarqube
+        state: present
+        insertbefore: EOF
+
+    - name: Ensure RUN_AS_USER is set before APP_NAME
+      lineinfile:
+        path: /opt/sonarqube-10.0.0.68432/bin/linux-x86-64/sonar.sh
+        line: "RUN_AS_USER=ddsonar"
+        insertbefore: '^APP_NAME="SonarQube"'
+        state: present
+
+
+    - name: Create SonarQube systemd service file
+      copy:
+        dest: /etc/systemd/system/sonar.service
+        content: |
+          [Unit]
+          Description=SonarQube service
+          After=syslog.target network.target
+
+          [Service]
+          Type=forking
+          ExecStart=/opt/sonarqube-10.0.0.68432/bin/linux-x86-64/sonar.sh start
+          ExecStop=/opt/sonarqube-10.0.0.68432s/bin/linux-x86-64/sonar.sh stop
+          User=ddsonar
+          Group=ddsonar
+          Restart=always
+          LimitNOFILE=65536
+          LimitNPROC=4096
+
+          [Install]
+          WantedBy=multi-user.target
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reload systemd to apply the new service
+      systemd:
+        daemon_reload: yes
+
+    - name: Enable SonarQube service to start on boot
+      systemd:
+        name: sonar
+        state: started
+        enabled: yes
+#############################################################
+    - name: Append sysctl configuration file  
+      blockinfile:
+        path: /etc/sysctl.conf    # sonarQube uses Elasticsearch to store its indices in an MMap FS directory.
+        block: |
+          vm.max_map_count=262144
+          fs.file-max=65536
+          ulimit -n 65536
+          ulimit -u 4096
+        state: present
+        insertbefore: EOF
+
+    - name: Reboot the server
+      reboot:
+        msg: "Rebooting the system after SonarQube setup"
+        reboot_timeout: 600 
