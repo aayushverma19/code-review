@@ -31,10 +31,8 @@ Ansible is a powerful automation tool that lets you manage and configure your in
 Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
 
 
-# Why ?
-Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
-
 # Why Use Ansible Roles?
+Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
 | **Reason**                     | **Description**                                                                                       |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
