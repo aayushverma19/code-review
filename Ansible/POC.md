@@ -156,7 +156,7 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 > [!NOTE]
 > To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
 
-3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. These variables typically have higher precedence than those in the `defaults/main.yml` file."
+3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
 ```yaml
 ---
@@ -176,6 +176,8 @@ required_packages:
   - python3-psycopg2
   - zip
 ```
+
+### Role Vars/static Variables 
 
 
 | **Variable**                 | **Description** |  
@@ -197,7 +199,12 @@ required_packages:
 | `zip`                       | Utility for handling compressed files. |  
 
 
-[SonarQube Static Variables link]()
+[SonarQube vars/Static Variables link]()
+
+> [!NOTE]
+> These variables typically have higher precedence than those in the `defaults/main.yml` file.
+
+
 
 
 
