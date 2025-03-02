@@ -102,7 +102,7 @@ image
 
 
 **Step 5: Tasks**
-1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `sonarqube_debian.yml` file. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
+1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
 ---
@@ -208,7 +208,7 @@ required_packages:
 
 
 
-3. `sonarqube_debian.yaml`: This file is included in the sonarqube/tasks/main.yml file
+3. `tasks/main.yml`: These file is included in the sonarQube-setup/tasks/main.yml file
 
 
 3 add file
