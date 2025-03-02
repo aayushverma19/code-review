@@ -85,8 +85,8 @@ compose:
 ### **Step 3: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
 
+<img width="1019" alt="image" src="https://github.com/user-attachments/assets/62c9f245-9214-42c2-b58a-66a789f13730" />
 
-image 
 
 [SonarQube Ansible Role link]()
 
