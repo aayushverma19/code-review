@@ -22,9 +22,8 @@
 
 
 
-### Step-by-step installation 
+## Step-by-step installation 
 
----
 
 **Step 1: Dynamic Inventory Setup** 
 
@@ -117,7 +116,8 @@ groups:
    pgdg_key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
    postgresql_package_name: "postgresql"
 ```
-### Role Variables 
+## Role Variables 
+
 | **Variable** | **Description** |
 | ------------ | --------------- |
 | `postgres_version` | Version of Postgresql to be installed as DB |
