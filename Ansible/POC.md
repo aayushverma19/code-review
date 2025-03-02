@@ -134,27 +134,31 @@ sysctl_config:
       - "fs.file-max=65536"
       - "ulimit -n 65536"
       - "ulimit -u 4096"
-
-# defaults file for sonarqube
-   postgres_version: 15
-   jdk_version: 17
-   sonarqube_version: "9.6.1.59531"
-   sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
-   sonarqube_home: "/opt/sonarqube"
-   sonarqube_web_port: 9000
-   sonarqube_user: sonarqube
-   sonarqube_password: Password
-   sonarqube_db: sonarqube
-   pgdg_repo_url: "https://apt.postgresql.org/pub/repos/apt"
-   pgdg_repo_version: "{{ ansible_distribution_release }}"
-   pgdg_key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
-   postgresql_package_name: "postgresql"
 ```
 
 [SonarQube Defaults Variables link]()
 
 
-## Role Variables 
+## Role Defauls Variables 
+
+
+| **Variable**                 | **Description** |
+|------------------------------|---------------|
+| `sonarqube_install_dir`      | Installation directory for SonarQube, dynamically set based on the version. |
+| `sonarqube_service_name`     | The system service name for SonarQube. |
+| `sonarqube_download_url`     | URL to download the specified SonarQube version. |
+| `sonarqube_web_port`         | The port on which SonarQube will run (default: 9000). |
+| `sysctl_config`              | System and user limits required for SonarQube. |
+| `vm.max_map_count=262144`    | Sets the maximum number of memory map areas a process can use. |
+| `fs.file-max=65536`          | Sets the maximum number of open file descriptors. |
+| `ulimit -n 65536`            | Sets the maximum number of open file descriptors per process. |
+| `ulimit -u 4096`             | Sets the maximum number of user processes. |
+
+> [!NOTE]
+> To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
+
+3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. These variables typically have higher precedence than those in the `defaults/main.yml` file."
+
 
 | **Variable** | **Description** |
 | ------------ | --------------- |
@@ -172,8 +176,7 @@ sysctl_config:
 | `pgdg_key_url` | Postgres key URL |
 | `postgresql_package_name` | Package to be downladed from Postgres repository |
 
-> [!NOTE]
-> To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
+
 
 
 3. `sonarqube_debian.yaml`: This file is included in the sonarqube/tasks/main.yml file
