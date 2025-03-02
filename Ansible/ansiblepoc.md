@@ -28,7 +28,26 @@ Ansible is a lightweight, agentless automation tool that leverages SSH for Linux
 - **Playbooks:** YAML files defining automation workflows.
 - **Roles:** Reusable sets of tasks and configurations.
 
-## 4. Prerequisites
+
+## 4. Run-Time Dependencies
+
+| Dependency       | Purpose |
+|-----------------|---------|
+| Python 3.x      | Required for executing Ansible scripts |
+| SSH client      | Used for communication with Linux-based managed nodes |
+| WinRM modules   | Required for managing Windows-based nodes |
+| YAML support    | Enables Ansible to process playbooks |
+
+## 5. Required Ports
+
+| Environment               | Port  |
+|---------------------------|-------|
+| Linux-based managed nodes | 22 (SSH) |
+| Windows-based managed nodes | 5985 (HTTP) / 5986 (HTTPS) (WinRM) |
+| Control node internal communication | localhost |
+
+
+## 6. Prerequisites
 
 | Requirement            | Details |
 |------------------------|---------|
@@ -41,7 +60,7 @@ Ansible is a lightweight, agentless automation tool that leverages SSH for Linux
 | WinRM                 | Enabled for Windows-based systems |
 | User Permissions      | Proper user permissions to execute tasks (sudo or root access) |
 
-## 5. Workflow for Installing Ansible
+## 6. Workflow for Installing Ansible
 
 ### **Step 1: Update System Packages**
 
@@ -105,23 +124,6 @@ ansible-config init --disabled > ansible.cfg
 ```bash
 ansible --version
 ```
-
-## 6. Run-Time Dependencies
-
-| Dependency       | Purpose |
-|-----------------|---------|
-| Python 3.x      | Required for executing Ansible scripts |
-| SSH client      | Used for communication with Linux-based managed nodes |
-| WinRM modules   | Required for managing Windows-based nodes |
-| YAML support    | Enables Ansible to process playbooks |
-
-## 7. Required Ports
-
-| Environment               | Port  |
-|---------------------------|-------|
-| Linux-based managed nodes | 22 (SSH) |
-| Windows-based managed nodes | 5985 (HTTP) / 5986 (HTTPS) (WinRM) |
-| Control node internal communication | localhost |
 
 ## 8. Benefits of Using Ansible
 
