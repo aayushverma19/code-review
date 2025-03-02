@@ -8,21 +8,20 @@
 | Aayush Verma|   27-02-2025              | v1          | Aayush Verma   | 27-02-2025   |  Internal Reviewer | Siddharth |
 
 
-**Table of Contents**
+## **Table of Contents**
 
-- [1. Introduction](#introduction)
-- [2. What](#what)
-- [3. Why](#why)
-- [4. Steps for creating Ansible role](#Steps-for-creating-ansible-role)
-                - [ 4.1 Creating a Role](#creating-a-role)
-                - [**Folder Structure**](#folder-structure)
-                - [Folder Structure](#folder-strucyure)
-                - [Run playbook](#run-playbook)
-   
-5. [**Steps to run playbook**](#steps-to-run-playbook)
-8. [**Conclusion**](#conclusion)
-9. [**Contact Information**](#contact-information)
-10. [**References**](#references)
+  1. [Introduction](#introduction)
+  2. [Install Ansible](#install-ansible)
+  3. [Flow Diagram](#flow-diagram)
+  4. [Sonarqube](#sonarqube)
+  5. [Creating a Role](#creating-a-role)
+  6. [Folder Structure](#folder-structure)
+  7. [Steps For Creating Ansible Role](#steps-for-creating-ansible-role)
+  8. [Run Playbook](#run-playbook)
+  9. [Conclusion](#conclusion)
+  10. [Contact Information](#contact-information)
+  11. [References](#references)
+
 
 ## Introduction
 This role is designed to automate the installation and configuration of SonarQube on target ubuntu servers. Whether you're setting up SonarQube for standalone code analysis or to integrate with continuous integration/continuous delivery solution, or other purposes, this role aims to simplify the process.
@@ -47,10 +46,6 @@ This role is designed to automate the installation and configuration of SonarQub
 SonarQube is a leading open-source platform for continuous inspection of code quality. It analyzes codebases, identifies bugs, security vulnerabilities, and code smells. Offering a comprehensive view of code health, SonarQube assists development teams in maintaining high-quality software, ensuring robust security, and fostering continuous improvement in codebases.
 
 
-## Steps for creating Ansible role
-
-[POC](link)
-
 ## Creating a Role
 
 To create a new role, you can use the ansible-galaxy command:
@@ -63,6 +58,11 @@ ansible-galaxy init role_name
 ## Folder Structure
 
 ![image](https://github.com/user-attachments/assets/3424fd07-fd9b-464c-a0c3-c3dd526eb823)
+
+
+## Steps for creating Ansible role
+
+[POC](link)
 
 
 ## Run playbook
