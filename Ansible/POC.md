@@ -81,6 +81,7 @@ compose:
 * Create a new Ansible role which should follow this directory structure:
 
 
+image 
 
 
 **Step 4: playbook.yml**
