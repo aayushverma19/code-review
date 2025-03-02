@@ -1,4 +1,4 @@
-# Proof of Concept: Installing Ansible
+# Installing Ansible POC
 
 ![image](https://github.com/user-attachments/assets/50db375c-2482-4101-abfc-f187f57f5fb7)
 
