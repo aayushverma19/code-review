@@ -25,7 +25,7 @@
 ## Step-by-step installation 
 
 
-**Step 1: Dynamic Inventory Setup** 
+### **Step 1: Dynamic Inventory Setup** 
 
 ```yaml
 [defaults]
