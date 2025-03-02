@@ -13,7 +13,7 @@
   2. [AWS EC2 Inventory](#step-2--aws-ec2-inventory)
   3. [Create Ansible Role](#step-3-create-ansible-role)  
   4. [SonarQube Playbook](#step-4-sonarqubeyml-playbook)
-  5. [Tasks](#step-5-tasks-file)
+  5. [Tasks File](#step-5-tasks-file)
         - [ 4.1 Creating a Role](#creating-a-role)
 
   6. [Create Ansible Role](#step-3-create-ansible-role)  
@@ -109,7 +109,7 @@ compose:
 
 ###  **Step 5: Tasks File**
 
-5.1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
+- **5.1.** `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
 ---
@@ -217,7 +217,7 @@ required_packages:
 
 ---
 
-5.4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
+- **5.4.** `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
     1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
   
