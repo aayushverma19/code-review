@@ -177,7 +177,6 @@ Ansible is a powerful and flexible automation tool that simplifies infrastructur
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-|[Official Ansible Documentation](https://docs.ansible.com/)|  |
-| [Ansible GitHub Repository](https://github.com/ansible/ansible) | |
-|[Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)||
+|[Official Ansible Documentation](https://docs.ansible.com/)|  Official Ansible Documentation |
+|[Ansible Installation Guide](https://medium.com/@kadimasam/install-ansible-on-ubuntu-22-04-f5152edcbdce)|Ansible Installation Guide|
 
