@@ -322,6 +322,9 @@ Once the playbook is executed successfully, Open your web browser and SonarQube 
 
 <img width="1440" alt="Screenshot 2025-03-01 at 11 11 20 PM" src="https://github.com/user-attachments/assets/aeccab58-f9c9-4f50-8e46-1542883034df" />
 
+## Conclusion
+
+This POC showcases how Ansible simplifies SonarQube deployment on AWS EC2 instances through automation, dynamic inventory, and role-based execution. It ensures scalability, flexibility, and maintainability while enabling seamless CI/CD integration. Future enhancements like security hardening, monitoring, and rollback mechanisms can further refine the deployment process.
 
 
 
