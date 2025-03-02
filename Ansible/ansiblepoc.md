@@ -1,5 +1,7 @@
 # Proof of Concept: Installing Ansible
 
+![Uploading image.png…]()
+
 
 | **Author** | **Created on** | **Version** | **Last updated by**|**Last Edited On**|**Level** |**Reviewer** |
 |------------|---------------------------|-------------|----------------|-----|-------------|-------------|
