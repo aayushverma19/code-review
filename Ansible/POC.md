@@ -129,7 +129,7 @@ compose:
 
 ---
 
-5.2. `Defaults variables`: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
+- **5.2.** `Defaults variables`: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
 ---
@@ -167,7 +167,7 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 
 ---
 
-5.3. `vars variables`: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
+- **5.3.** `vars variables`: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
 ```yaml
 ---
