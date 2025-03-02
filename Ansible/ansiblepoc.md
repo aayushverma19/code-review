@@ -150,15 +150,17 @@ Ansible is a powerful and flexible automation tool that simplifies infrastructur
 
 ## 11. Contact Information
 
-For further inquiries, contact:
 
-- **Name:** [Your Name]
-- **Email:** [Your Email]
-- **GitHub:** [Your GitHub Profile]
+| **Name**       | **Email Address**        |
+|----------------|--------------------------|
+| Aayush Verma   | <aayush.verma@mygurukulam.co> |
+
 
 ## 12. References
 
-- [Official Ansible Documentation](https://docs.ansible.com/)
-- [Ansible GitHub Repository](https://github.com/ansible/ansible)
-- [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+| **Link** | **Description** |
+|------------------------------------------------------|------------------|
+|[Official Ansible Documentation](https://docs.ansible.com/)|  |
+| [Ansible GitHub Repository](https://github.com/ansible/ansible) | |
+|[Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)||
 
