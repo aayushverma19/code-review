@@ -9,21 +9,18 @@
 <details>
   <summary>Step-by-step installation </summary>
 
-  1. [Introduction](#introduction)
-  2. [What](#what)
-  3. [Why](#why)  
+  1. [Dynamic Inventory Setup](#step-1-dynamic-inventory-setup)
+  2. [AWS EC2 Inventory](#step-2--aws-ec2-inventory)
+  3. [Create Ansible Role](#step-3-create-ansible-role)  
+  4. [SonarQube Playbook](#step-4-sonarqubeyml-playbook)
+  5. [Tasks](#step-5-tasks-file)
         - [ 4.1 Creating a Role](#creating-a-role)
+
+  6. [Create Ansible Role](#step-3-create-ansible-role)  
+
 
 </details>
 
-1. [Introduction](#introduction)
-2. [What](#what)
-3. [Why](#why)
-4. [Steps for creating Ansible role](#Steps-for-creating-ansible-role)
-                - [ 4.1 Creating a Role](#creating-a-role)
-                - [**Folder Structure**](#folder-structure)
-                - [Folder Structure](#folder-strucyure)
-                - [Run playbook](#run-playbook)
 
 ## Step-by-step installation 
 
@@ -110,9 +107,9 @@ compose:
 
 ---
 
-###  **Step 5: Tasks**
+###  **Step 5: Tasks File**
 
-1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
+5.1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
 ---
@@ -132,7 +129,7 @@ compose:
 
 ---
 
-2. `Defaults` variables: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
+5.2. `Defaults variables`: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
 ---
@@ -170,7 +167,7 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 
 ---
 
-3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
+5.3. `vars variables`: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
 ```yaml
 ---
@@ -220,9 +217,9 @@ required_packages:
 
 ---
 
-4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
+5.4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
-     1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
+    1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
   
     2. [useranddb.yml]():-This Ansible playbook ensures a PostgreSQL user and database for SonarQube exist. It creates the user if not present, updates the password, creates the database if missing, and grants full privileges to the user. 
 
