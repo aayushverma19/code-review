@@ -148,7 +148,7 @@ ansible-config init --disabled > ansible.cfg
 ansible-galaxy init role_name 
 ```
 
-## **Step 6: Run playbook**
+### **Step 6: Run playbook**
 
 ``` sh
 ansible-playbook -i <inventory-file> <playbook-name>
