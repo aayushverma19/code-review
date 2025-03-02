@@ -139,7 +139,7 @@ sysctl_config:
 [SonarQube Defaults Variables link]()
 
 
-## Role Defauls Variables 
+### Role Defauls Variables 
 
 
 | **Variable**                 | **Description** |
@@ -158,6 +158,26 @@ sysctl_config:
 > To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
 
 3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. These variables typically have higher precedence than those in the `defaults/main.yml` file."
+
+```yaml
+---
+# vars file for sonarQube-setup
+sonarqube_install_dir: "/opt/sonarqube-{{ sonarqube_version }}"
+sonarqube_service_name: "sonarqube"
+sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
+sonarqube_web_port: 9000
+sysctl_config:
+      - "vm.max_map_count=262144"
+      - "fs.file-max=65536"
+      - "ulimit -n 65536"
+      - "ulimit -u 4096"
+required_packages:
+  - openjdk-{{ jdk_version }}-jdk
+  - postgresql
+  - postgresql-contrib
+  - python3-psycopg2
+  - zip
+```
 
 
 | **Variable** | **Description** |
