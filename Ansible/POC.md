@@ -206,12 +206,14 @@ required_packages:
 
 
 
+4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
+     1. `dependence.yml`:- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot.
+  
+    2. `useranddb.yml`:-This Ansible playbook ensures a PostgreSQL user and database for SonarQube exist. It creates the user if not present, updates the password, creates the database if missing, and grants full privileges to the user.
 
-3. `tasks/main.yml`: These file is included in the sonarQube-setup/tasks/main.yml file
+    3. `sonarqube.yml`:-This Ansible playbook installs and configures SonarQube by downloading and extracting it, creating a dedicated user and group, setting permissions, configuring SonarQube using templates, setting up a systemd service, and updating sysctl settings.
 
-
-3 add file
 
 **Step 6: Templates for Configuration**
 We need to create two jinja2 templates :
@@ -224,10 +226,9 @@ We need to create two jinja2 templates :
 # SonarQube configuration file
 
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/{{ sonarqube_db }}
-sonar.jdbc.username={{ sonarqube_user }}
-sonar.jdbc.password={{ sonarqube_password }}
+sonar.jdbc.username={{ sonarqube_db_user }}
+sonar.jdbc.password={{ sonarqube_db_password }}
 
-sonar.web.host=0.0.0.0
 sonar.web.port={{ sonarqube_web_port }}
 ```
 
@@ -239,13 +240,13 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-ExecStart={{ sonarqube_home }}/current/bin/linux-x86-64/sonar.sh start
-ExecStop={{ sonarqube_home }}/current/bin/linux-x86-64/sonar.sh stop
+ExecStart={{ sonarqube_install_dir }}/bin/linux-x86-64/sonar.sh start
+ExecStop={{ sonarqube_install_dir }}/bin/linux-x86-64/sonar.sh stop
 User={{ sonarqube_user }}
-Group={{ sonarqube_user }}
+Group={{ sonarqube_group }}
 Restart=always
-LimitNOFILE=131072
-LimitNPROC=8192
+LimitNOFILE=65536
+LimitNPROC=4096
 
 [Install]
 WantedBy=multi-user.target
@@ -256,7 +257,7 @@ WantedBy=multi-user.target
 * To set up Jenkins on your target servers, you will execute the Ansible playbook using the following command:
 
 ```bash
-ansible-playbook -i aws_ec2.yml playbook.yml
+ansible-playbook -i aws_ec2.yml SonarQube.yml
 ```
 
 > Additional Options
