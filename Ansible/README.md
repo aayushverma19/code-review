@@ -28,6 +28,10 @@
 This role is designed to automate the installation and configuration of SonarQube on target ubuntu servers. Whether you're setting up SonarQube for standalone code analysis or to integrate with continuous integration/continuous delivery solution, or other purposes, this role aims to simplify the process.
 
 
+## Install Ansible
+
+ To install Ansible on your system, please follow the link below for the Ansible Installation Guide. :- [Ansible Installation Guide]()
+
 ## Flow Diagram
 
 * This diagram should help you visualize the sequence of tasks in the Ansible role for setting up SonarQube.
