@@ -148,6 +148,11 @@ ansible-config init --disabled > ansible.cfg
 ansible-galaxy init role_name 
 ```
 
+## **Step 6: Run playbook**
+
+``` sh
+ansible-playbook -i <inventory-file> <playbook-name>
+```
 
 ## 8. Benefits of Using Ansible
 
