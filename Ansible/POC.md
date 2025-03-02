@@ -56,7 +56,7 @@ enable_plugins = aws_ec2,
 
 ---
 
-**Step 2:  AWS EC2 Inventory**
+### **Step 2:  AWS EC2 Inventory**
 
 ```yaml
 ---
@@ -82,7 +82,7 @@ compose:
 
 ---
 
-**Step 3: Create Ansible Role**
+### **Step 3: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
 
 
@@ -90,7 +90,9 @@ image
 
 [SonarQube Ansible Role link]()
 
-**Step 4: playbook.yml**
+---
+
+### **Step 4: SonarQube.yml**
 * This file is defining a set of tasks to be executed on hosts belonging to the ubuntu group.
 
 ```yaml
@@ -105,7 +107,7 @@ image
 
 ---
 
-**Step 5: Tasks**
+###  **Step 5: Tasks**
 
 1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
@@ -217,15 +219,15 @@ required_packages:
 
 4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
-     1. `dependence.yml`:- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot.
+     1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
   
-    2. `useranddb.yml`:-This Ansible playbook ensures a PostgreSQL user and database for SonarQube exist. It creates the user if not present, updates the password, creates the database if missing, and grants full privileges to the user.
+    2. [useranddb.yml]():-This Ansible playbook ensures a PostgreSQL user and database for SonarQube exist. It creates the user if not present, updates the password, creates the database if missing, and grants full privileges to the user. 
 
-    3. `sonarqube.yml`:-This Ansible playbook installs and configures SonarQube by downloading and extracting it, creating a dedicated user and group, setting permissions, configuring SonarQube using templates, setting up a systemd service, and updating sysctl settings.
+    3. [sonarqube.yml]():-This Ansible playbook installs and configures SonarQube by downloading and extracting it, creating a dedicated user and group, setting permissions, configuring SonarQube using templates, setting up a systemd service, and updating sysctl settings.
 
 ---
 
-**Step 6: Templates for Configuration**
+### **Step 6: Templates for Configuration**
 
 We need to create two jinja2 templates :
 * To configure SonarQube
@@ -265,7 +267,7 @@ WantedBy=multi-user.target
 
 ---
 
-**Step 7: Playbook Execution**
+### **Step 7: Playbook Execution**
 
 * To set up Jenkins on your target servers, you will execute the Ansible playbook using the following command:
 
