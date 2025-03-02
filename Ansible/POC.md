@@ -300,7 +300,7 @@ Playbook Execution output:-
 ***
 
 ## Post-Installation Setup
-Once the playbook is executed successfully, Open your web browser and SonarQube UI can be accessed at`http://sonarqube-server-ip:9000`.
+* Once the playbook is executed successfully, Open your web browser and SonarQube UI can be accessed at`http://sonarqube-server-ip:9000`.
 
   <img width="1440" alt="Screenshot 2025-03-01 at 11 08 31 PM" src="https://github.com/user-attachments/assets/bb5b3430-b9a2-4ab5-8123-877b80f506ca" />
 
