@@ -63,7 +63,7 @@ plugin: aws_ec2
 regions:
   - "us-east-1"
 filters:
-  tag:server:
+  tag:Type:
     - "sonarQube"
   instance-state-name : running
 compose:
@@ -76,6 +76,8 @@ compose:
 1. `plugin: aws_ec2`: Specifies the use of the aws_ec2 plugin as the dynamic inventory source. This plugin is designed to fetch information about EC2 instances in AWS.
 2. `regions: - us-east-1`: Indicates the AWS region(s) from which the dynamic inventory should fetch information.
 3. `Server: "'sonarQube'`: Creates an Ansible group named sonar. This group includes EC2 instances where the tag named Type has a value of 'sonar'. You can tag all your sonarqube instances accordingly.
+4. `instance-state-name: running`: Filters the inventory to include only running EC2 instances.  
+5. `compose: ansible_host: private_ip_address`: Sets `ansible_host` to the instance's private IP for SSH access.
 
 **Step 3: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
@@ -83,32 +85,56 @@ compose:
 
 image 
 
+[SonarQube Ansible Role link]()
 
 **Step 4: playbook.yml**
 * This file is defining a set of tasks to be executed on hosts belonging to the ubuntu group.
 
 ```yaml
 ---
-- hosts: sonar
+- hosts: all
   become: yes
-  gather_facts: yes 
   roles:
-    - sonarqube
+    - sonarQube-setup
 ```
+
+[SonarQube Playbook link]()
+
+
 **Step 5: Tasks**
 1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `sonarqube_debian.yml` file. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
 ---
-# tasks file for sonarqube
-- include: sonarqube_debian.yaml
+# tasks file for sonarQube-setup
+- name: install all dependence
+  include_tasks: dependence.yml
+  when: ansible_facts['os_family'] == 'Debian'
+- name: postgresql user 
+  include_tasks: useranddb.yml
+  when: ansible_facts['os_family'] == 'Debian'
+- name: Install SonarQube
+  include_tasks: sonarqube.yml
   when: ansible_facts['os_family'] == 'Debian'
 ```
+
+[SonarQube Tasks link]()
 
 2. `Default` variables: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
 ---
+# defaults file for sonarQube-setup
+sonarqube_install_dir: "/opt/sonarqube-{{ sonarqube_version }}"
+sonarqube_service_name: "sonarqube"
+sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
+sonarqube_web_port: 9000
+sysctl_config:
+      - "vm.max_map_count=262144"
+      - "fs.file-max=65536"
+      - "ulimit -n 65536"
+      - "ulimit -u 4096"
+
 # defaults file for sonarqube
    postgres_version: 15
    jdk_version: 17
@@ -124,6 +150,10 @@ image
    pgdg_key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
    postgresql_package_name: "postgresql"
 ```
+
+[SonarQube Defaults Variables link]()
+
+
 ## Role Variables 
 
 | **Variable** | **Description** |
