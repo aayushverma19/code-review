@@ -89,5 +89,5 @@ This guide illustrates the process of deploying SonarQube in a development envir
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-| https://medium.com/@ngueaghotiodongrobertolandry/ansible-roles-7c46c82d13be |  |
-| | |
+| [Ansible role](https://medium.com/@ngueaghotiodongrobertolandry/ansible-roles-7c46c82d13be) | Ansible role |
+| [SonarQube Installation](https://medium.com/@deshdeepakdhobi/how-to-install-and-configure-sonarqube-on-aws-ec2-ubuntu-22-04-c89a3f1c2447)| SonarQube Installation |
