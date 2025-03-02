@@ -120,45 +120,38 @@ image
 
 [SonarQube Tasks link]()
 
-2. `Default` variables: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
+2. `Defaults` variables: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
 ---
 # defaults file for sonarQube-setup
-# defaults file for sonarQube-setup
 postgresql_version: "16"
 jdk_version: "17"
 sonarqube_version: "10.0.0.68432"
+sonarqube_web_port: 9000
 sonarqube_user: "ddsonar"
 sonarqube_group: "ddsonar"
 sonarqube_db: "ddsonarqube"
 sonarqube_db_user: "ddsonar"
 sonarqube_db_password: "mwd#2%#!!#%rgs"
 ```
-| **Variable** | **Description** |
-| ------------ | --------------- |
-| `postgres_version` | Version of Postgresql to be installed as DB |
-| `jdk_version` | Java Development Kit(JDK) version |
-| `sonarqube_version` | Version of SonarQube to be installed |
-| `sonarqube_download_url` | URL to download SonarQube zip file |
-| `sonarqube_home` | Path to `SONARQUBE_HOME` directory |
-| `sonarqube_web_port` | SonarQube webserver port |
-| `sonarqube_user` | A linux and postgres user for sonarqube operations |
-| `sonarqube_password` | Password for sonarqube postgres user |
-| `sonarqube_db` | SonarQube schema in DB |
-| `pgdg_repo_url` | Postgres repository URL |
-| `pgdg_repo_version` | Postgres repository version based on distribution |
-| `pgdg_key_url` | Postgres key URL |
-| `postgresql_package_name` | Package to be downladed from Postgres repository |
+
+### Role Defaults Variables 
+
+| **Variable**            | **Value**                | **Description**                                |  
+|-------------------------|-------------------------|------------------------------------------------|  
+| `postgresql_version`    | `"16"`                   | PostgreSQL version for SonarQube database.     |  
+| `jdk_version`          | `"17"`                   | Java Development Kit version required.         |  
+| `sonarqube_version`    | `"10.0.0.68432"`         | SonarQube version to be installed.             | 
+| `sonarqube_web_port`   |  `"9000"`                | SonarQube webserver port |
+| `sonarqube_user`       | `"ddsonar"`              | User for running SonarQube.                    |  
+| `sonarqube_group`      | `"ddsonar"`              | Group for SonarQube user.                      |  
+| `sonarqube_db`         | `"ddsonarqube"`          | Database name for SonarQube.                   |  
+| `sonarqube_db_user`    | `"ddsonar"`              | Database user for SonarQube.                   |  
+| `sonarqube_db_password` | `"mwd#2%#!!#%rgs"`     | Password for the SonarQube database user.      |  
 
 
 [SonarQube Defaults Variables link]()
-
-
-### Role Defauls Variables 
-
-
-
 
 > [!NOTE]
 > To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
@@ -171,7 +164,6 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 sonarqube_install_dir: "/opt/sonarqube-{{ sonarqube_version }}"
 sonarqube_service_name: "sonarqube"
 sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
-sonarqube_web_port: 9000
 sysctl_config:
       - "vm.max_map_count=262144"
       - "fs.file-max=65536"
@@ -185,20 +177,27 @@ required_packages:
   - zip
 ```
 
-| **Variable**                 | **Description** |
-|------------------------------|---------------|
-| `sonarqube_install_dir`      | Installation directory for SonarQube, dynamically set based on the version. |
-| `sonarqube_service_name`     | The system service name for SonarQube. |
-| `sonarqube_download_url`     | URL to download the specified SonarQube version. |
-| `sonarqube_web_port`         | The port on which SonarQube will run (default: 9000). |
-| `sysctl_config`              | System and user limits required for SonarQube. |
-| `vm.max_map_count=262144`    | Sets the maximum number of memory map areas a process can use. |
-| `fs.file-max=65536`          | Sets the maximum number of open file descriptors. |
-| `ulimit -n 65536`            | Sets the maximum number of open file descriptors per process. |
-| `ulimit -u 4096`             | Sets the maximum number of user processes. |
+
+| **Variable**                 | **Description** |  
+|------------------------------|---------------|  
+| `sonarqube_install_dir`      | Installation directory for SonarQube, dynamically set based on the version. |  
+| `sonarqube_service_name`     | The system service name for SonarQube. |  
+| `sonarqube_download_url`     | URL to download the specified SonarQube version. |  
+| `sonarqube_web_port`         | The port on which SonarQube will run (default: 9000). |  
+| `sysctl_config`              | System and user limits required for SonarQube. |  
+| `vm.max_map_count=262144`    | Sets the maximum number of memory map areas a process can use. |  
+| `fs.file-max=65536`          | Sets the maximum number of open file descriptors. |  
+| `ulimit -n 65536`            | Sets the maximum number of open file descriptors per process. |  
+| `ulimit -u 4096`             | Sets the maximum number of user processes. |  
+| `required_packages`          | List of necessary system packages for SonarQube installation. |  
+| `openjdk-{{ jdk_version }}-jdk` | Java Development Kit required for SonarQube. |  
+| `postgresql`                | PostgreSQL database for SonarQube. |  
+| `postgresql-contrib`        | Additional PostgreSQL utilities. |  
+| `python3-psycopg2`          | Python package to interact with PostgreSQL. |  
+| `zip`                       | Utility for handling compressed files. |  
 
 
-
+[SonarQube Static Variables link]()
 
 
 
