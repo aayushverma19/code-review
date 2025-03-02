@@ -142,9 +142,12 @@ To generate a default `ansible.cfg` file with all configurations disabled, run:
 ansible-config init --disabled > ansible.cfg
 ```
 
+### **Step 3: Initialize a New Ansible Role**
+
 ```bash
-ansible --version
+ansible-galaxy init role_name 
 ```
+
 
 ## 8. Benefits of Using Ansible
 
