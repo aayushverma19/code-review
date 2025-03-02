@@ -10,29 +10,34 @@
   <summary>Step-by-step installation </summary>
 
   1. [Dynamic Inventory Setup](#step-1-dynamic-inventory-setup)
-  2. [AWS EC2 Inventory](#step-2--aws-ec2-inventory)
-  3. [Create Ansible Role](#step-3-create-ansible-role)  
-  4. [SonarQube Playbook](#step-4-sonarqubeyml-playbook)
-  5. [Importent File](#step-5-importent-file)
-        - [ Main.yml File ](#51-mainyml)
-        - [ Defaults Variables File ](#52-defaults-variables)
-        - [ Vars Variables File ](#53-vars-variables)
-        - [ Subtasks File ](#54-subtasks-file)
-  6. [Templates for configuration](#step-6-templates-for-configuration)  
-        - [ SonarQube Configure File ](#61-sonarqube-configure-file-)
-        - [ SonarQube service File ](#62-sonarqube-service-file-)
-  7. [Playbook Execution](#step-7-playbook-execution) 
-  8. [Post Installation setup](#post-installation-setup)
-  8. [Conclusion](#conclusion)
-  8. [Contact Information](#contact-information)
+  2. [Dynamic Inventory Setup](#step-2-dynamic-inventory-setup)
+  3. [AWS EC2 Inventory](#step-3--aws-ec2-inventory)
+  4. [Create Ansible Role](#step-4-create-ansible-role)  
+  5. [SonarQube Playbook](#step-5-sonarqubeyml-playbook)
+  6. [Importent File](#step-6-importent-file)
+        - [ Main.yml File ](#61-mainyml)
+        - [ Defaults Variables File ](#62-defaults-variables)
+        - [ Vars Variables File ](#63-vars-variables)
+        - [ Subtasks File ](#64-subtasks-file)
+  7. [Templates for configuration](#step-7-templates-for-configuration)  
+        - [ SonarQube Configure File ](#71-sonarqube-configure-file-)
+        - [ SonarQube service File ](#72-sonarqube-service-file-)
+  8. [Playbook Execution](#step-8-playbook-execution) 
+  9. [Post Installation setup](#post-installation-setup)
+  10. [Conclusion](#conclusion)
+  11. [Contact Information](#contact-information)
 
 </details>
 
 
 ## Step-by-step installation 
 
+### **Step 1: Install Ansible
 
-### **Step 1: Dynamic Inventory Setup** 
+ To install Ansible on your system, please follow the link below for the Ansible Installation Guide. :- [Ansible Installation Guide]()
+
+
+### **Step 2: Dynamic Inventory Setup** 
 
 ```yaml
 [defaults]
@@ -63,7 +68,7 @@ enable_plugins = aws_ec2,
 
 ---
 
-### **Step 2:  AWS EC2 Inventory**
+### **Step 3:  AWS EC2 Inventory**
 
 ```yaml
 ---
@@ -89,7 +94,7 @@ compose:
 
 ---
 
-### **Step 3: Create Ansible Role**
+### **Step 4: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
 
 <img width="1019" alt="image" src="https://github.com/user-attachments/assets/62c9f245-9214-42c2-b58a-66a789f13730" />
@@ -99,7 +104,7 @@ compose:
 
 ---
 
-### **Step 4: SonarQube.yml Playbook**
+### **Step 5: SonarQube.yml Playbook**
 * This file is defining a set of tasks to be executed on hosts belonging to the ubuntu group.
 
 ```yaml
@@ -114,9 +119,9 @@ compose:
 
 ---
 
-###  **Step 5: Importent File**
+###  **Step 6: Importent File**
 
-#### **5.1. main.yml:** 
+#### **6.1. main.yml:** 
 - This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
@@ -137,7 +142,7 @@ compose:
 
 ---
 
-#### **5.2. Defaults variables:** 
+#### **6.2. Defaults variables:** 
 - This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
@@ -176,7 +181,7 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 
 ---
 
-#### **5.3 vars variables:** 
+#### **6.3 vars variables:** 
 - This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
 ```yaml
@@ -227,7 +232,7 @@ required_packages:
 
 ---
 
-#### **5.4 Subtasks File:** 
+#### **6.4 Subtasks File:** 
 - This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
     1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
@@ -238,14 +243,14 @@ required_packages:
 
 ---
 
-### **Step 6: Templates for Configuration**
+### **Step 7: Templates for Configuration**
 
 We need to create two jinja2 templates :
 
 * To configure [SonarQube configure]()
 * To set up [SonarQube Service]()
 
-#### **6.1 SonarQube configure File:-** 
+#### **7.1 SonarQube configure File:-** 
 
 - `sonarqube.conf.j2` teamplate includes parameteters to configure SonarQube database and webserver
 
@@ -259,7 +264,7 @@ sonar.jdbc.password={{ sonarqube_db_password }}
 sonar.web.port={{ sonarqube_web_port }}
 ```
 
-#### **6.2 SonarQube Service File:-** 
+#### **7.2 SonarQube Service File:-** 
 
 - `sonarqube.service.j2` template creates a service file for setting up `sonarqube.service`
 ```ini
@@ -283,7 +288,7 @@ WantedBy=multi-user.target
 
 ---
 
-### **Step 7: Playbook Execution**
+### **Step 8: Playbook Execution**
 
 * To set up Jenkins on your target servers, you will execute the Ansible playbook using the following command:
 
