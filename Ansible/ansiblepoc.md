@@ -9,19 +9,23 @@
 
 ## **Table of Contents**
 
-- [1. Introduction](#introduction)
-- [2. What](#what)
-- [3. Why](#why)
-- [4. Steps for creating Ansible role](#Steps-for-creating-ansible-role)
-                - [ 4.1 Creating a Role](#creating-a-role)
-                - [**Folder Structure**](#folder-structure)
-                - [Folder Structure](#folder-strucyure)
-                - [Run playbook](#run-playbook)
-   
-5. [**Steps to run playbook**](#steps-to-run-playbook)
-8. [**Conclusion**](#conclusion)
-9. [**Contact Information**](#contact-information)
-10. [**References**](#references)
+  1. [Introduction](#introduction)
+  2. [Why Ansible](#1-why-ansible)
+  3. [What is Ansible](#2-what-is-ansible)
+  4. [Key-Components of Ansible](#3-key-components-of-ansible)
+  5. [Run Time Dependencies](#4-run-time-dependencies)
+  6. [Required Ports](#5-required-ports)
+  7. [Prerequisites](#6-prerequisites)
+  8. [Workflow For Installing Ansible](#7-workflow-for-installing-ansible)
+        - [ Update System Packages ](#step-1-update-system-packages)
+        - [ Install Ansible ](#step-2-install-ansible)
+        - [ Verify Installation ](#step-3-verify-installation)
+        - [ Initialize Ansible Configuration ](#step-4-initialize-ansible-configuration)
+  9. [Benefits of Using Ansible](#8-benefits-of-using-ansible)
+  10. [Best Practices](#9-best-practices)
+  11. [Conclusion](#10-conclusion)
+  11. [Contact Informatio](#11-contact-information)
+  12. [References](#12-references)
 
 
 ## Introduction
@@ -77,7 +81,7 @@ Ansible is a lightweight, agentless automation tool that leverages SSH for Linux
 | WinRM                 | Enabled for Windows-based systems |
 | User Permissions      | Proper user permissions to execute tasks (sudo or root access) |
 
-## 6. Workflow for Installing Ansible
+## 7. Workflow for Installing Ansible
 
 ### **Step 1: Update System Packages**
 
