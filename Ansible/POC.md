@@ -13,11 +13,18 @@
   2. [AWS EC2 Inventory](#step-2--aws-ec2-inventory)
   3. [Create Ansible Role](#step-3-create-ansible-role)  
   4. [SonarQube Playbook](#step-4-sonarqubeyml-playbook)
-  5. [Tasks File](#step-5-tasks-file)
-        - [ 4.1 Creating a Role](#creating-a-role)
-
-  6. [Create Ansible Role](#step-3-create-ansible-role)  
-
+  5. [Importent File](#step-5-importent-file)
+        - [ Main.yml File ](#51-mainyml)
+        - [ Defaults Variables File ](#52-defaults-variables)
+        - [ Vars Variables File ](#53-vars-variables)
+        - [ Subtasks File ](#54-subtasks-file)
+  6. [Templates for configuration](#step-6-templates-for-configuration)  
+        - [ SonarQube Configure File ](#61-sonarqube-configure-file-)
+        - [ SonarQube service File ](#62-sonarqube-service-file-)
+  7. [Playbook Execution](#step-7-playbook-execution) 
+  8. [Post Installation setup](#post-installation-setup)
+  8. [Conclusion](#conclusion)
+  8. [Contact Information](#contact-information)
 
 </details>
 
@@ -107,9 +114,10 @@ compose:
 
 ---
 
-###  **Step 5: Tasks File**
+###  **Step 5: Importent File**
 
-- **5.1.** `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
+#### **5.1. main.yml:** 
+- This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
 ---
@@ -129,7 +137,8 @@ compose:
 
 ---
 
-- **5.2.** `Defaults variables`: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
+#### **5.2. Defaults variables:** 
+- This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
 ```yaml
 ---
@@ -167,7 +176,8 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 
 ---
 
-- **5.3.** `vars variables`: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
+#### **5.3 vars variables:** 
+- This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
 ```yaml
 ---
@@ -217,7 +227,8 @@ required_packages:
 
 ---
 
-- **5.4.** `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
+#### **5.4 Subtasks File:** 
+- This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
     1. [dependence.yml]():- This Ansible playbook updates the package cache, installs required packages (using a variable required_packages), and ensures the PostgreSQL service is running and enabled at boot. 
   
@@ -230,10 +241,13 @@ required_packages:
 ### **Step 6: Templates for Configuration**
 
 We need to create two jinja2 templates :
-* To configure SonarQube
-* To set up SonarQube Service
 
-1. `sonarqube.conf.j2` teamplate includes parameteters to configure SonarQube database and webserver
+* To configure [SonarQube configure]()
+* To set up [SonarQube Service]()
+
+#### **6.1 SonarQube configure File:-** 
+
+- `sonarqube.conf.j2` teamplate includes parameteters to configure SonarQube database and webserver
 
 ```yaml
 # SonarQube configuration file
@@ -245,7 +259,9 @@ sonar.jdbc.password={{ sonarqube_db_password }}
 sonar.web.port={{ sonarqube_web_port }}
 ```
 
-2. `sonarqube.service.j2` template creates a service file for setting up `sonarqube.service`
+#### **6.2 SonarQube Service File:-** 
+
+- `sonarqube.service.j2` template creates a service file for setting up `sonarqube.service`
 ```ini
 [Unit]
 Description=SonarQube service
