@@ -33,9 +33,11 @@ remote_user = ubuntu
 [inventory]
 # enable inventory plugins
 enable_plugins = aws_ec2,
+```
 
 > [!NOTE]
 >Ensure that for dynamic inventory you have the necessary AWS credentials configured in AWS CLI or an IAM role on the node. 
+
 
 **Step 2:  AWS EC2 Inventory**
 
