@@ -275,6 +275,14 @@ WantedBy=multi-user.target
 ansible-playbook -i aws_ec2.yml SonarQube.yml
 ```
 
+Playbook Execution output:-
+
+<img width="1184" alt="Screenshot 2025-03-01 at 11 04 34 PM" src="https://github.com/user-attachments/assets/8f4d7d4e-2f20-4f6e-ace9-023c339ecffc" />
+<img width="1184" alt="Screenshot 2025-03-01 at 11 04 51 PM" src="https://github.com/user-attachments/assets/31607d18-5d64-4f01-8f45-ee17bb60835f" />
+
+
+
+
 > Additional Options
 > 
 > --limit: You can use this option to specify a subset of hosts from the inventory on which the playbook should be executed.
@@ -287,33 +295,30 @@ ansible-playbook -i aws_ec2.yml SonarQube.yml
 ## Output
 1.  **Host-level output**: Output for each host would indicate whether the playbook execution was successful or not.
 
-![Screenshot 2024-02-05 022810](https://github.com/avengers-p7/Documentation/assets/156056344/3782928b-10f1-444d-b39f-fe87d5611313)
-
-
-2. **SonarQube UI**: Once the playbook is executed successfully, SonarQube UI can be accessed at `http://sonarqube-server-ip:9000`
-
-![Screenshot 2024-02-04 220309](https://github.com/avengers-p7/Documentation/assets/156056344/58434c15-38fb-436e-a44e-a40ce998f78c)
-
-
-> [!NOTE]
-> Make sure that the server security group allows traffic to default sonarqube port 9000. 
+<img width="1196" alt="Screenshot 2025-03-01 at 11 06 52 PM" src="https://github.com/user-attachments/assets/64994578-7c30-4793-ade5-e2cba7790ce9" />
 
 ***
 
 ## Post-Installation Setup
-* Open your web browser and navigate to `http://sonarqube-server-ip:9000`.
-![Screenshot 2024-02-05 015518](https://github.com/avengers-p7/Documentation/assets/156056344/b67cb9bc-3bfb-4dad-bb9c-e1c92d5b7878)
+Once the playbook is executed successfully, Open your web browser and SonarQube UI can be accessed at`http://sonarqube-server-ip:9000`.
 
-* On your first login post installation, you can login using : `username:admin` & `password:admin`
-  
-  ![Screenshot 2024-02-05 023714](https://github.com/avengers-p7/Documentation/assets/156056344/d7ac25d2-8173-44ef-ab48-3fdf70253a6b)
+  <img width="1440" alt="Screenshot 2025-03-01 at 11 08 31 PM" src="https://github.com/user-attachments/assets/bb5b3430-b9a2-4ab5-8123-877b80f506ca" />
+
+> [!NOTE]
+> Make sure that the server security group allows traffic to default sonarqube port 9000. 
+
+
+* On your first login post installation, you can log in using: `username: admin` & `password: admin`
+
+<img width="737" alt="Screenshot 2025-03-01 at 11 09 46 PM" src="https://github.com/user-attachments/assets/d0e00a8c-f1b8-4cd7-84fb-2117feddfb7f" />
+
 
 * You'll be prompted to create a new password
 
-  ![Screenshot 2024-02-05 023909](https://github.com/avengers-p7/Documentation/assets/156056344/ea953833-3f43-4e0b-9039-0792c1d21841)
+<img width="1440" alt="Screenshot 2025-03-01 at 11 10 14 PM" src="https://github.com/user-attachments/assets/4214e0bb-630b-44e4-8a4d-612778c66191" />
 
-* Once you set your new password . You're all set to begin using SonarQube
 
-![Screenshot 2024-02-05 024023](https://github.com/avengers-p7/Documentation/assets/156056344/65412475-effc-4a17-bb5c-c9164bd366c4)
+* Once you set your new password. You're all set to begin using SonarQube
 
+<img width="1440" alt="Screenshot 2025-03-01 at 11 11 20 PM" src="https://github.com/user-attachments/assets/aeccab58-f9c9-4f50-8e46-1542883034df" />
 
