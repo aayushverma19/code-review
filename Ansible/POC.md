@@ -9,7 +9,7 @@
 <details>
   <summary>Step-by-step installation </summary>
 
-  1. [Dynamic Inventory Setup](#step-1-dynamic-inventory-setup)
+  1. [Install Ansible](#step-1-install-ansible)
   2. [Dynamic Inventory Setup](#step-2-dynamic-inventory-setup)
   3. [AWS EC2 Inventory](#step-3--aws-ec2-inventory)
   4. [Create Ansible Role](#step-4-create-ansible-role)  
