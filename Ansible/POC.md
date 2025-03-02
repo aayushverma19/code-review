@@ -125,16 +125,32 @@ image
 ```yaml
 ---
 # defaults file for sonarQube-setup
-sonarqube_install_dir: "/opt/sonarqube-{{ sonarqube_version }}"
-sonarqube_service_name: "sonarqube"
-sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
-sonarqube_web_port: 9000
-sysctl_config:
-      - "vm.max_map_count=262144"
-      - "fs.file-max=65536"
-      - "ulimit -n 65536"
-      - "ulimit -u 4096"
+# defaults file for sonarQube-setup
+postgresql_version: "16"
+jdk_version: "17"
+sonarqube_version: "10.0.0.68432"
+sonarqube_user: "ddsonar"
+sonarqube_group: "ddsonar"
+sonarqube_db: "ddsonarqube"
+sonarqube_db_user: "ddsonar"
+sonarqube_db_password: "mwd#2%#!!#%rgs"
 ```
+| **Variable** | **Description** |
+| ------------ | --------------- |
+| `postgres_version` | Version of Postgresql to be installed as DB |
+| `jdk_version` | Java Development Kit(JDK) version |
+| `sonarqube_version` | Version of SonarQube to be installed |
+| `sonarqube_download_url` | URL to download SonarQube zip file |
+| `sonarqube_home` | Path to `SONARQUBE_HOME` directory |
+| `sonarqube_web_port` | SonarQube webserver port |
+| `sonarqube_user` | A linux and postgres user for sonarqube operations |
+| `sonarqube_password` | Password for sonarqube postgres user |
+| `sonarqube_db` | SonarQube schema in DB |
+| `pgdg_repo_url` | Postgres repository URL |
+| `pgdg_repo_version` | Postgres repository version based on distribution |
+| `pgdg_key_url` | Postgres key URL |
+| `postgresql_package_name` | Package to be downladed from Postgres repository |
+
 
 [SonarQube Defaults Variables link]()
 
@@ -142,17 +158,7 @@ sysctl_config:
 ### Role Defauls Variables 
 
 
-| **Variable**                 | **Description** |
-|------------------------------|---------------|
-| `sonarqube_install_dir`      | Installation directory for SonarQube, dynamically set based on the version. |
-| `sonarqube_service_name`     | The system service name for SonarQube. |
-| `sonarqube_download_url`     | URL to download the specified SonarQube version. |
-| `sonarqube_web_port`         | The port on which SonarQube will run (default: 9000). |
-| `sysctl_config`              | System and user limits required for SonarQube. |
-| `vm.max_map_count=262144`    | Sets the maximum number of memory map areas a process can use. |
-| `fs.file-max=65536`          | Sets the maximum number of open file descriptors. |
-| `ulimit -n 65536`            | Sets the maximum number of open file descriptors per process. |
-| `ulimit -u 4096`             | Sets the maximum number of user processes. |
+
 
 > [!NOTE]
 > To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
@@ -179,22 +185,19 @@ required_packages:
   - zip
 ```
 
+| **Variable**                 | **Description** |
+|------------------------------|---------------|
+| `sonarqube_install_dir`      | Installation directory for SonarQube, dynamically set based on the version. |
+| `sonarqube_service_name`     | The system service name for SonarQube. |
+| `sonarqube_download_url`     | URL to download the specified SonarQube version. |
+| `sonarqube_web_port`         | The port on which SonarQube will run (default: 9000). |
+| `sysctl_config`              | System and user limits required for SonarQube. |
+| `vm.max_map_count=262144`    | Sets the maximum number of memory map areas a process can use. |
+| `fs.file-max=65536`          | Sets the maximum number of open file descriptors. |
+| `ulimit -n 65536`            | Sets the maximum number of open file descriptors per process. |
+| `ulimit -u 4096`             | Sets the maximum number of user processes. |
 
-| **Variable** | **Description** |
-| ------------ | --------------- |
-| `postgres_version` | Version of Postgresql to be installed as DB |
-| `jdk_version` | Java Development Kit(JDK) version |
-| `sonarqube_version` | Version of SonarQube to be installed |
-| `sonarqube_download_url` | URL to download SonarQube zip file |
-| `sonarqube_home` | Path to `SONARQUBE_HOME` directory |
-| `sonarqube_web_port` | SonarQube webserver port |
-| `sonarqube_user` | A linux and postgres user for sonarqube operations |
-| `sonarqube_password` | Password for sonarqube postgres user |
-| `sonarqube_db` | SonarQube schema in DB |
-| `pgdg_repo_url` | Postgres repository URL |
-| `pgdg_repo_version` | Postgres repository version based on distribution |
-| `pgdg_key_url` | Postgres key URL |
-| `postgresql_package_name` | Package to be downladed from Postgres repository |
+
 
 
 
