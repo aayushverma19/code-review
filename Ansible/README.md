@@ -51,7 +51,7 @@ SonarQube is a leading open-source platform for continuous inspection of code qu
 To create a new role, you can use the ansible-galaxy command:
 
 ``` sh
-ansible-galaxy init role_name 
+ansible-galaxy init sonarQube-setup 
 ```
 
 
