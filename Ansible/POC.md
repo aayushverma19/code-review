@@ -52,7 +52,7 @@ enable_plugins = aws_ec2,
 [Ansible config file link]()
 
 > [!NOTE]
->Ensure that for dynamic inventory you have the necessary AWS credentials configured in AWS CLI or an IAM role on the node. 
+>Ensure that for dynamic inventory you have the necessary AWS credentials configured in [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) or an IAM role on the node. 
 
 
 **Step 2:  AWS EC2 Inventory**
