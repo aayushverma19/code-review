@@ -95,7 +95,7 @@ compose:
 
 ---
 
-### **Step 4: SonarQube.yml**
+### **Step 4: SonarQube.yml Playbook**
 * This file is defining a set of tasks to be executed on hosts belonging to the ubuntu group.
 
 ```yaml
