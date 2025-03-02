@@ -1,7 +1,6 @@
 # Proof of Concept: Installing Ansible
 
-![Uploading image.png…]()
-
+![image](https://github.com/user-attachments/assets/50db375c-2482-4101-abfc-f187f57f5fb7)
 
 | **Author** | **Created on** | **Version** | **Last updated by**|**Last Edited On**|**Level** |**Reviewer** |
 |------------|---------------------------|-------------|----------------|-----|-------------|-------------|
