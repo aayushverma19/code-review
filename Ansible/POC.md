@@ -54,6 +54,7 @@ enable_plugins = aws_ec2,
 > [!NOTE]
 >Ensure that for dynamic inventory you have the necessary AWS credentials configured in [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) or an IAM role on the node. 
 
+---
 
 **Step 2:  AWS EC2 Inventory**
 
@@ -79,6 +80,8 @@ compose:
 4. `instance-state-name: running`: Filters the inventory to include only running EC2 instances.  
 5. `compose: ansible_host: private_ip_address`: Sets `ansible_host` to the instance's private IP for SSH access.
 
+---
+
 **Step 3: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
 
@@ -100,8 +103,10 @@ image
 
 [SonarQube Playbook link]()
 
+---
 
 **Step 5: Tasks**
+
 1. `main.yml`: This main.yml file is acting as an orchestrator, importing tasks from the `dependence.yml` , `useranddb.yml` & `sonarqube.yml` files. This separation of tasks into different files is a good practice for better organization, especially when dealing with complex configurations or roles.
 
 ```yaml
@@ -119,6 +124,8 @@ image
 ```
 
 [SonarQube Tasks link]()
+
+---
 
 2. `Defaults` variables: This role comes with default values for several variables that have been used in the role. You can find these defaults in the `defaults/main.yml` file within the role directory.
 
@@ -155,6 +162,8 @@ sonarqube_db_password: "mwd#2%#!!#%rgs"
 
 > [!NOTE]
 > To customize the SonarQube installation based on your specific requirements, you can override these default values in main.yaml file in the vars directory of the role. 
+
+---
 
 3. `vars` variables: This role comes with static values for several variables that are defined in the `vars/main.yml` file within the role directory. 
 
@@ -204,7 +213,7 @@ required_packages:
 > [!NOTE]
 > These variables typically have higher precedence than those in the `defaults/main.yml` file.
 
-
+---
 
 4. `tasks`: This file is included in the `dependence.yml`, `useranddb.yml` & `sonarqube.yml` files.
 
@@ -214,8 +223,10 @@ required_packages:
 
     3. `sonarqube.yml`:-This Ansible playbook installs and configures SonarQube by downloading and extracting it, creating a dedicated user and group, setting permissions, configuring SonarQube using templates, setting up a systemd service, and updating sysctl settings.
 
+---
 
 **Step 6: Templates for Configuration**
+
 We need to create two jinja2 templates :
 * To configure SonarQube
 * To set up SonarQube Service
@@ -252,6 +263,8 @@ LimitNPROC=4096
 WantedBy=multi-user.target
 ```
 
+---
+
 **Step 7: Playbook Execution**
 
 * To set up Jenkins on your target servers, you will execute the Ansible playbook using the following command:
@@ -266,8 +279,9 @@ ansible-playbook -i aws_ec2.yml SonarQube.yml
 > 
 > -e or --extra-vars: You can pass extra variables to the playbook using this option.
 
+---
 
-***
+
 ## Output
 1.  **Host-level output**: Output for each host would indicate whether the playbook execution was successful or not.
 
