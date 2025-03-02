@@ -36,8 +36,6 @@ This role is designed to automate the installation and configuration of SonarQub
 
 * This diagram should help you visualize the sequence of tasks in the Ansible role for setting up SonarQube.
 
-![Screenshot 2024-02-05 030520](https://github.com/avengers-p7/Documentation/assets/156056344/a90a22e7-1401-43ac-9487-7b19fc282764)
-
 ![image](https://github.com/user-attachments/assets/c591566e-eb68-4044-b7e3-326043f718b7)
 
 
