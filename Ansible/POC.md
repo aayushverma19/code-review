@@ -49,6 +49,7 @@ remote_user = ubuntu
 # enable inventory plugins
 enable_plugins = aws_ec2,
 ```
+[Ansible config file link]()
 
 > [!NOTE]
 >Ensure that for dynamic inventory you have the necessary AWS credentials configured in AWS CLI or an IAM role on the node. 
@@ -60,20 +61,26 @@ enable_plugins = aws_ec2,
 ---
 plugin: aws_ec2
 regions:
-  - your_aws_region
-
-groups: 
-  ubuntu: "'ubuntu' in tags.Type"
+  - "us-east-1"
+filters:
+  tag:server:
+    - "sonarQube"
+  instance-state-name : running
+compose:
+  ansible_host: private_ip_address
 ```
+
+[SonarQube Dynamic Inventory link]()
+
 
 1. `plugin: aws_ec2`: Specifies the use of the aws_ec2 plugin as the dynamic inventory source. This plugin is designed to fetch information about EC2 instances in AWS.
 2. `regions: - us-east-1`: Indicates the AWS region(s) from which the dynamic inventory should fetch information.
-3. `sonar: "'sonar' in tags.Type"`: Creates an Ansible group named sonar. This group includes EC2 instances where the tag named Type has a value of 'sonar'. You can tag all your sonarqube instances accordingly.
+3. `Server: "'sonarQube'`: Creates an Ansible group named sonar. This group includes EC2 instances where the tag named Type has a value of 'sonar'. You can tag all your sonarqube instances accordingly.
 
 **Step 3: Create Ansible Role**
 * Create a new Ansible role which should follow this directory structure:
 
-![Screenshot 2024-02-05 015834](https://github.com/avengers-p7/Documentation/assets/156056344/e06c6296-0cb2-4816-af3d-c639f6061a79)
+
 
 
 **Step 4: playbook.yml**
