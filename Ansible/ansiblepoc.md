@@ -7,6 +7,23 @@
 | Aayush Verma|   27-02-2025              | v1          | Aayush Verma   | 27-02-2025   |  Internal Reviewer | Siddharth |
 
 
+**Table of Contents**
+
+- [1. Introduction](#introduction)
+- [2. What](#what)
+- [3. Why](#why)
+- [4. Steps for creating Ansible role](#Steps-for-creating-ansible-role)
+                - [ 4.1 Creating a Role](#creating-a-role)
+                - [**Folder Structure**](#folder-structure)
+                - [Folder Structure](#folder-strucyure)
+                - [Run playbook](#run-playbook)
+   
+5. [**Steps to run playbook**](#steps-to-run-playbook)
+8. [**Conclusion**](#conclusion)
+9. [**Contact Information**](#contact-information)
+10. [**References**](#references)
+
+
 ## Introduction
 
 This document provides a comprehensive guide on installing Ansible, covering the reasons to use it, its key components, prerequisites, installation workflow, dependencies, required ports, benefits, best practices, and references.
