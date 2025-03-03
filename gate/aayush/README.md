@@ -65,11 +65,14 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 17 26 PM" src="https://github.com/user-attachments/assets/7f4441e6-57c3-4707-a80d-6fea1c0f4c79" />
 
+---
 
 ### 2. Go to Quality Gates
 - Click on **Quality Gates** in the top menu.
 
 <img width="1424" alt="Screenshot 2025-03-03 at 10 22 51 PM" src="https://github.com/user-attachments/assets/6f7c63e8-0ce6-475e-a957-20399f537836" />
+
+---
 
 ### 3. Create or Edit a Quality Gate
 - If you want to modify an existing Quality Gate (like **SonarWay**), click on it. Otherwise, click **Create** to create a new one.
@@ -77,10 +80,13 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 18 52 PM" src="https://github.com/user-attachments/assets/dd216e79-4596-4205-93a1-112344462216" />
 
+---
+
 - Give the gate a meaningful name if creating a new one.
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 26 10 PM" src="https://github.com/user-attachments/assets/39227f71-8406-4990-9adf-72270365189d" />
 
+---
 
 ### 4. Add Conditions for Failing Quality Gate
 
@@ -96,12 +102,15 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 <img width="352" alt="Screenshot 2025-03-03 at 10 31 40 PM" src="https://github.com/user-attachments/assets/2694d64e-2554-41f1-b61f-18b92517f695" />
 <img width="1440" alt="Screenshot 2025-03-03 at 10 32 38 PM" src="https://github.com/user-attachments/assets/afda38ba-cbc7-4cca-8bee-102e7aa34348" />
 
+---
 
 ### 5. Apply Quality Gate to Your Project
 - Once you have added the conditions, save the quality gate.
 - Go to Project Administration > Quality Gate.
 - From the dropdown, select the quality gate you just created or updated.
 - Save the settings.
+
+---
 
 ### 6. Test the Quality Gate
 - Run the SonarQube analysis for your project to check if the quality gate fails based on these conditions:
@@ -115,12 +124,13 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/d3c053e8-4e9c-4c01-ad45-da2f2c0265de" />
 
+---
 
 ### 7. SonarQube Quality Gate Analysis and Build Status
 
-- #### **Successful Build**
+- **Successful Build**:
 
-The following image shows a successful build where the SonarQube Quality Gate has PASSED:
+  The following image shows a successful build where the SonarQube Quality Gate has PASSED
 
 ```
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
@@ -129,10 +139,11 @@ The following image shows a successful build where the SonarQube Quality Gate ha
 
 <img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
 
+---
 
-Failed Build
+- **Failed Build**
 
-The following image shows a failed build due to SonarQube Quality Gate FAILURE:
+    The following image shows a failed build due to SonarQube Quality Gate FAILURE
 
 ```
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
@@ -141,7 +152,7 @@ The following image shows a failed build due to SonarQube Quality Gate FAILURE:
 
 <img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/698e83f1-fc3a-45b1-9a43-8c048861d0dc" />
 
-
+---
 
 ## Best Practices for Quality Gates
 
@@ -151,6 +162,7 @@ The following image shows a failed build due to SonarQube Quality Gate FAILURE:
 - Encourage developers to address issues at the early development stages.
 - Use a combination of default and custom quality gates for flexibility.
 
+---
 
 ## Common Issues and Troubleshooting
 
@@ -167,7 +179,7 @@ The following image shows a failed build due to SonarQube Quality Gate FAILURE:
 - Confirm that the custom quality gate is assigned to the project.
 - Restart the SonarQube server if necessary.
 
-
+---
 
 ## Conclusion
 
