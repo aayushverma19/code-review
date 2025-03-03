@@ -116,9 +116,9 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 <img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/d3c053e8-4e9c-4c01-ad45-da2f2c0265de" />
 
 
-## SonarQube Quality Gate Analysis and Build Status
+### 7. SonarQube Quality Gate Analysis and Build Status
 
-Successful Build
+- #### **Successful Build**
 
 The following image shows a successful build where the SonarQube Quality Gate has PASSED:
 
