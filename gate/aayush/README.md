@@ -116,6 +116,20 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 <img width="352" alt="Screenshot 2025-03-03 at 10 31 40 PM" src="https://github.com/user-attachments/assets/2694d64e-2554-41f1-b61f-18b92517f695" />
 <img width="1440" alt="Screenshot 2025-03-03 at 10 32 38 PM" src="https://github.com/user-attachments/assets/afda38ba-cbc7-4cca-8bee-102e7aa34348" />
 
+
+1. **Conditions on Overall Code:**
+   - A new condition is set for **Coverage**:
+     - **Operator:** "is less than"
+     - **Value:** "90.0%"
+
+2. **Permissions Section:**
+   - Shows a link to **"Grant permissions to a user or a group"** for managing this Quality Gate.
+
+3. **Project Section** 
+  - 1. Go to **Quality Gates** → Select your **Quality Gate**.  
+  - 2. Scroll to the **Projects** section.  
+  - 3. Click **"With"**, search for the project, and select it.  
+
 ---
 
 ### 5. Apply Quality Gate to Your Project
