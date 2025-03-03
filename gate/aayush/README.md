@@ -108,8 +108,7 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 ### 2. Go to Quality Gates
 - Click on **Quality Gates** in the top menu.
 
-<img width="608" alt="image" src="https://github.com/user-attachments/assets/41885da3-708a-47d7-ae0a-6b61c8358770" />
-
+<img width="1424" alt="Screenshot 2025-03-03 at 10 22 51 PM" src="https://github.com/user-attachments/assets/6f7c63e8-0ce6-475e-a957-20399f537836" />
 
 ### 3. Create or Edit a Quality Gate
 - If you want to modify an existing Quality Gate (like **SonarWay**), click on it. Otherwise, click **Create** to create a new one.
