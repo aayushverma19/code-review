@@ -63,41 +63,6 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 17 26 PM" src="https://github.com/user-attachments/assets/7f4441e6-57c3-4707-a80d-6fea1c0f4c79" />
 
-<img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/2fa77ee7-d4f7-470f-9cff-51389afb93d0" />
-
-
-<img width="352" alt="Screenshot 2025-03-03 at 10 31 40 PM" src="https://github.com/user-attachments/assets/12b55346-24ec-491d-ba61-f0fd050e2def" />
-
-<img width="1440" alt="Screenshot 2025-03-03 at 10 18 52 PM" src="https://github.com/user-attachments/assets/31fbde68-7dd1-4c7e-a45c-a2eb12355921" />
-
-<img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/c657787d-0c0c-4218-b1e4-3c58281a5ae8" />
-
-<img width="1440" alt="Screenshot 2025-03-03 at 10 27 07 PM" src="https://github.com/user-attachments/assets/8f5ee8c4-2d2c-4bc1-8096-8aee7abb03dd" />
-
-<img width="1440" alt="Screenshot 2025-03-03 at 10 26 10 PM" src="https://github.com/user-attachments/assets/1923516a-5b47-467b-8ef0-e37832c53d60" />
-
-<img width="1424" alt="Screenshot 2025-03-03 at 10 22 51 PM" src="https://github.com/user-attachments/assets/6f7c63e8-0ce6-475e-a957-20399f537836" />
-
-
-
-
-
-
-
-
-
-########################
-
-<img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/b7645c54-dfb1-411f-abc2-fdb356bbad9d" />
-
-
-<img width="1424" alt="Screenshot 2025-03-03 at 10 22 51 PM" src="https://github.com/user-attachments/assets/1a6bc9fc-a8b1-4de5-bd4a-1edbd667f638" />
-
-
-
-<img width="1440" alt="Screenshot 2025-03-03 at 10 27 07 PM" src="https://github.com/user-attachments/assets/a4e8e5f0-fbd3-428a-add7-3edf9a3a29cb" />
-
-
 
 ### 2. Go to Quality Gates
 - Click on **Quality Gates** in the top menu.
