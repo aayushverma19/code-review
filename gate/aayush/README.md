@@ -102,6 +102,7 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 - Run the SonarQube analysis for your project to check if the quality gate fails based on these conditions:
 ```
   mvn clean install sonar:sonar
+  mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
 ```
 - After the analysis, go to the SonarQube dashboard for your project.
 - Check the Quality Gate status:
