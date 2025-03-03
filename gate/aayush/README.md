@@ -118,7 +118,16 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 ## additional
 
-Pass
+SonarQube Analysis and Build Success Report
+
+```
+  mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
+
+```
+
+<img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
+
+Fail
 
 ```
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
@@ -128,14 +137,6 @@ Pass
 <img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/698e83f1-fc3a-45b1-9a43-8c048861d0dc" />
 
 
-Faill
-
-```
-  mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
-
-```
-
-<img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
 
 ## Best Practices for Quality Gates
 - Set realistic and achievable thresholds to avoid unnecessary failures.
