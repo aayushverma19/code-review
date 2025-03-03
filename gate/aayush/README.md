@@ -118,12 +118,12 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 
 1. **Conditions on Overall Code:**
-   - A new condition is set for **Coverage**:
-     - **Operator:** "is less than"
-     - **Value:** "90.0%"
+  - A new condition is set for **Coverage**:
+    - **Operator:** "is less than"
+    - **Value:** "90.0%"
 
 2. **Permissions Section:**
-   - Shows a link to **"Grant permissions to a user or a group"** for managing this Quality Gate.
+  - Shows a link to **"Grant permissions to a user or a group"** for managing this Quality Gate.
 
 3. **Project Section** 
   - 1. Go to **Quality Gates** → Select your **Quality Gate**.  
