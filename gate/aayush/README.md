@@ -61,6 +61,8 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 - Open your SonarQube instance (e.g., `http://localhost:9000`).
 - Login using your credentials.
 
+<img width="1440" alt="Screenshot 2025-03-03 at 10 17 26 PM" src="https://github.com/user-attachments/assets/7f4441e6-57c3-4707-a80d-6fea1c0f4c79" />
+
 <img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/2fa77ee7-d4f7-470f-9cff-51389afb93d0" />
 
 
@@ -88,9 +90,6 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/b7645c54-dfb1-411f-abc2-fdb356bbad9d" />
 
-<img width="1440" alt="Screenshot 2025-03-03 at 10 17 26 PM" src="https://github.com/user-attachments/assets/7f4441e6-57c3-4707-a80d-6fea1c0f4c79" />
-
-
 
 <img width="1424" alt="Screenshot 2025-03-03 at 10 22 51 PM" src="https://github.com/user-attachments/assets/1a6bc9fc-a8b1-4de5-bd4a-1edbd667f638" />
 
@@ -108,14 +107,13 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 ### 3. Create or Edit a Quality Gate
 - If you want to modify an existing Quality Gate (like **SonarWay**), click on it. Otherwise, click **Create** to create a new one.
 
-<img width="332" alt="image" src="https://github.com/user-attachments/assets/0cb90da2-9d13-46c6-897f-ea92aa5a7519" />
+
 <img width="1440" alt="Screenshot 2025-03-03 at 10 18 52 PM" src="https://github.com/user-attachments/assets/dd216e79-4596-4205-93a1-112344462216" />
 
 - Give the gate a meaningful name if creating a new one.
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 26 10 PM" src="https://github.com/user-attachments/assets/39227f71-8406-4990-9adf-72270365189d" />
 
-<img width="356" alt="image" src="https://github.com/user-attachments/assets/1c38a1e7-7f9e-404e-8441-3af5fc034ef3" />
 
 ### 4. Add Conditions for Failing Quality Gate
 
