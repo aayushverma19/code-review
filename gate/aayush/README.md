@@ -86,6 +86,20 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 26 10 PM" src="https://github.com/user-attachments/assets/39227f71-8406-4990-9adf-72270365189d" />
 
+
+#### **Step 1: Navigate to the Quality Gates Tab**
+- Open SonarQube and log in as an administrator.
+- Click on the **"Quality Gates"** tab in the top navigation bar.
+
+#### **Step 2: Create a New Quality Gate**
+- On the left side, click the **"Create"** button to add a new Quality Gate.
+- A pop-up window will appear to enter details for the new Quality Gate.
+
+#### **Step 3: Name the Quality Gate and Save**
+- Enter a name for the Quality Gate (e.g., **"First Project"**) in the input field.
+- Click on the **"Save"** button to create the Quality Gate.
+
+
 ---
 
 ### 4. Add Conditions for Failing Quality Gate
