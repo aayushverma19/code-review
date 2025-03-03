@@ -116,9 +116,11 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 <img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/d3c053e8-4e9c-4c01-ad45-da2f2c0265de" />
 
 
-## additional
+## SonarQube Quality Gate Analysis and Build Status
 
-SonarQube Analysis and Build Success Report
+Successful Build
+
+The following image shows a successful build where the SonarQube Quality Gate has PASSED:
 
 ```
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
@@ -127,7 +129,10 @@ SonarQube Analysis and Build Success Report
 
 <img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
 
-Fail
+
+Failed Build
+
+The following image shows a failed build due to SonarQube Quality Gate FAILURE:
 
 ```
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
@@ -139,6 +144,7 @@ Fail
 
 
 ## Best Practices for Quality Gates
+
 - Set realistic and achievable thresholds to avoid unnecessary failures.
 - Regularly review and update quality gates to align with evolving project requirements.
 - Integrate SonarQube with CI/CD pipelines for automated quality checks.
