@@ -146,6 +146,15 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
   mvn clean verify sonar:sonar -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
 
 ```
+> [!NOTE]
+ >* sonar:sonar → Triggers the SonarQube analysis.
+ >* -Dsonar.projectKey → Specifies the unique project identifier in SonarQube.
+ >* -Dsonar.projectName → Defines the human-readable project name in SonarQube.
+ >* -Dsonar.host.url → Sets the SonarQube server URL.
+ >* -Dsonar.token → Provides authentication credentials via a token.
+
+
+
 - After the analysis, go to the SonarQube dashboard for your project.
 - Check the Quality Gate status:
   - If any condition (e.g., Code Coverage < 90%, Reliability Rating = B, etc.) is not met, the project will show as Failed.
