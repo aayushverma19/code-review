@@ -99,10 +99,6 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
 <img width="1440" alt="Screenshot 2025-03-03 at 10 27 07 PM" src="https://github.com/user-attachments/assets/a4e8e5f0-fbd3-428a-add7-3edf9a3a29cb" />
 
 
-<img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/698e83f1-fc3a-45b1-9a43-8c048861d0dc" />
-<img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
-
-
 
 ### 2. Go to Quality Gates
 - Click on **Quality Gates** in the top menu.
@@ -153,6 +149,14 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
   - If any condition (e.g., Code Coverage < 90%, Reliability Rating = B, etc.) is not met, the project will show as Failed.
 
 <img width="1440" alt="Screenshot 2025-03-03 at 10 41 21 PM" src="https://github.com/user-attachments/assets/d3c053e8-4e9c-4c01-ad45-da2f2c0265de" />
+
+
+## addtional
+
+<img width="1136" alt="Screenshot 2025-03-03 at 10 44 07 PM" src="https://github.com/user-attachments/assets/698e83f1-fc3a-45b1-9a43-8c048861d0dc" />
+<img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
+
+
 ### Conclusion
 
 SonarQube's quality gates help maintain high code standards by checking metrics like code coverage, security, and maintainability. The default "Sonar way" gate provides a solid foundation, while custom gates allow for flexibility. Quality gates detect issues early, ensure consistency, and integrate smoothly into CI/CD pipelines, making them essential for modern software development.
