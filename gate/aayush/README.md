@@ -173,6 +173,9 @@ SonarQube quality gates are predefined sets of conditions used to assess the qua
   mvn clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=<project.key>  -Dsonar.projectName='project.Name'  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=<your_token>
 
 ```
+> [!IMPORTANT]
+ >* -Dsonar.qualitygate.wait=true → Forces the build to wait until SonarQube completes analysis and returns a Quality Gate result.
+
 
 <img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
 
