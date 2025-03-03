@@ -227,6 +227,9 @@ SonarQube's quality gates help maintain high code standards by checking metrics 
 
 1. [SonarQube Official Documentation - Quality Gates](https://docs.sonarqube.org/latest/user-guide/quality-gates/)  
 2. [Best Practices for Managing Code Quality](https://www.sonarsource.com/)  
-3. [Continuous Integration and Quality Gates](https://martinfowler.com/)  
-4. [SonarQube Community Forum](https://community.sonarsource.com/)  
+
+| **Link**             | **Description**                                    |
+|-----------------------------------------------------------------------------|--------------------------------------------------|
+| [SonarQube Official Documentation - Quality Gates](https://docs.sonarqube.org/latest/user-guide/quality-gates/)   | Setup & Configuration  |
+|[Best Practices for Managing Code Quality](https://www.sonarsource.com/)  | Code Quality Tips |
 
