@@ -229,8 +229,6 @@ SonarQube's quality gates help maintain high code standards by checking metrics 
 | **Link**             | **Description**                                    |
 |-----------------------------------------------------------------------------|--------------------------------------------------|
 | [SonarQube Official Documentation - Quality Gates](https://docs.sonarqube.org/latest/user-guide/quality-gates/)   | Setup & Configuration  |
-|[SonarQube Quality Gates](https://medium.com/@tarunprakash/quality-gates-a-must-have-thing-for-the-code-analysis-process-75b33d6b49dc)| Code Analysis Process
-Tarun Prakash
- |
+|[SonarQube Quality Gates](https://medium.com/@tarunprakash/quality-gates-a-must-have-thing-for-the-code-analysis-process-75b33d6b49dc)| Code Analysis Process|
 |[Best Practices for Managing Code Quality](https://www.sonarsource.com/)  | Code Quality Tips |
 
