@@ -11,6 +11,8 @@
 - [Benefits of SonarQube Quality Gates](#benefits-of-sonarqube-quality-gates)
 - [Types of quality gates in SonarQube](#types-of-quality-gates-in-sonarqube)
 - [SonarQube Quality Gate Implementation](#SonarQube-Quality-Gate-Implementation)
+- [Best Practices for Quality Gates](#best-practices-for-quality-gates)
+- [Common Issues and Troubleshooting](#common-issues-and-troubleshooting)
 - [Conclusion](#Conclusion)
 - [Contact Information](#contact-information)
 - [Reference Links](#reference-links)
@@ -134,6 +136,13 @@ Faill
 ```
 
 <img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
+
+## Best Practices for Quality Gates
+- Set realistic and achievable thresholds to avoid unnecessary failures.
+- Regularly review and update quality gates to align with evolving project requirements.
+- Integrate SonarQube with CI/CD pipelines for automated quality checks.
+- Encourage developers to address issues at the early development stages.
+- Use a combination of default and custom quality gates for flexibility.
 
 
 ## Common Issues and Troubleshooting
