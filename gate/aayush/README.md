@@ -136,7 +136,24 @@ Faill
 <img width="1136" alt="Screenshot 2025-03-03 at 10 46 55 PM" src="https://github.com/user-attachments/assets/f128a08d-8b27-4be9-83c5-e4ab02826e90" />
 
 
-### Conclusion
+## Common Issues and Troubleshooting
+
+### Quality Gate Fails Unexpectedly
+- Ensure the correct quality gate is applied to the project.
+- Verify that the SonarQube analysis is completed successfully.
+- Check logs for potential errors or misconfigurations.
+
+### Coverage Not Detected
+- Ensure test reports are correctly generated and included in the analysis.
+- Verify proper integration of SonarQube with the build system (Maven, Gradle, etc.).
+
+### Custom Quality Gate Not Applying
+- Confirm that the custom quality gate is assigned to the project.
+- Restart the SonarQube server if necessary.
+
+
+
+## Conclusion
 
 SonarQube's quality gates help maintain high code standards by checking metrics like code coverage, security, and maintainability. The default "Sonar way" gate provides a solid foundation, while custom gates allow for flexibility. Quality gates detect issues early, ensure consistency, and integrate smoothly into CI/CD pipelines, making them essential for modern software development.
 
