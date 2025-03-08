@@ -49,7 +49,8 @@ http://100.26.240.39:9000
 ```
 
 > [!NOTE]
-> The default username and password are admin and admin respectively.
+>* The default username and password are admin and admin respectively.
+>* Make sure that the server security group allows traffic to default sonarqube port 9000. 
 
 
 ![image](https://github.com/user-attachments/assets/861bb0fb-5295-4fc2-9670-d6c1395a2fcd)
