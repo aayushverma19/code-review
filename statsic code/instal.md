@@ -2,7 +2,6 @@
 
 ## **Documentation of Static Code Anaylysis in Java CI Checks**
 
-![image](https://github.com/user-attachments/assets/b164d7bc-c70a-4c68-a5d6-5f6e7d6e6b09)
 
 | **Author** | **Created on** | **Version** | **Last updated by**|**Last Edited On**|**Level** |**Reviewer** |
 |------------|---------------------------|-------------|----------------|-----|-------------|-------------|
