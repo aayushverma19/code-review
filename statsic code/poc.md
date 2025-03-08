@@ -47,7 +47,10 @@
 ``` bash
 http://100.26.240.39:9000
 ```
-**Note:-** the default username and password are admin and admin respectively.
+
+> [!NOTE]
+> The default username and password are admin and admin respectively.
+
 
 ![image](https://github.com/user-attachments/assets/861bb0fb-5295-4fc2-9670-d6c1395a2fcd)
 ___
