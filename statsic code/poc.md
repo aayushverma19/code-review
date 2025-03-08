@@ -13,17 +13,16 @@
 
 ## **Table of Content**
 
-1. [Install PostgreSQL](#install-postgresql)
-2. [Configure sonarqube](#configure-sonarqube)
+1. [Install SonarQube](#install-sonarqube)
+2. [Configure SonarQube](#configure-sonarqube)
 3. [Accessing SonarQube](#accessing-sonarqube)
    - [Step1. Access SonarQube Web Interface](#step1-access-sonarqube-web-interface)
    - [Step2. Change Password](#step2-change-password)
 4. [Static Code Analysis](#static-code-analysis)
    - [Step1. Go to SonarQube and select the project](#step1-go-to-sonarqube-and-select-the-project)
-   - [Step2. Configure the Project](#step2-configure-the-project)
-   - [Step3. Generate Token](#step3-generate-token)
-   - [Step4. Run Analysis](#step4-run-analysis)
-   - [Step5. Result](#step5-result)
+   - [Step2. Generate Token](#step2-generate-token)
+   - [Step3. Run Analysis](#step3-run-analysis)
+   - [Step4. Result](#step4-result)
 5. [Conclusion](#conclusion)  
 6. [Contact Information](#contact-information)  
 7. [References](#references)
