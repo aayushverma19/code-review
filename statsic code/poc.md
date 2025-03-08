@@ -13,12 +13,8 @@
 
 ## **Table of Content**
 
-1. [Installation](#installation)
-   - [Step1. Install PostgreSQL](#step1-install-postgresql)
-   - [Step 2. Install Sonarqube](#step2-install-sonarqube)
-2. [Configuration](#configuration)
-   - [Step1. Configure PostgreSQL](#step1-configure-postgresql)
-   - [Step2. Configure sonarqube](#step2-configure-sonarqube)
+1. [Install PostgreSQL](#install-postgresql)
+2. [Configure sonarqube](#configure-sonarqube)
 3. [Accessing SonarQube](#accessing-sonarqube)
    - [Step1. Access SonarQube Web Interface](#step1-access-sonarqube-web-interface)
    - [Step2. Change Password](#step2-change-password)
