@@ -90,6 +90,7 @@ ___
 ## **Step3. Generate Token**
 Copy the generated token for authentication during analysis.<br/>
 
+
 ![image](https://github.com/user-attachments/assets/c90f31f1-7071-410f-94f1-cd384e6db8d8)
 ___
 
@@ -97,7 +98,7 @@ ___
 ## **Step4. Run Analysis**
 Execute the analysis on your project.<br/>
 
-![image](https://github.com/user-attachments/assets/324e265d-aff7-494f-8033-82e1d646931b)
+![image](https://github.com/user-attachments/assets/4e6dfb83-84ec-49a7-86d0-92c53d7a4a70)
 
 
 ___
@@ -105,8 +106,8 @@ ___
 ## **Step5. Result**
 Review the analysis results in the SonarQube interface.<br/>
 
+![image](https://github.com/user-attachments/assets/c60a73d9-937e-4f70-a53d-af432db2130e)
 
-![image](https://github.com/user-attachments/assets/31bfee29-a71b-42d7-bd2c-8ced47bf9992)
 
 ___
 
