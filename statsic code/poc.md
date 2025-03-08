@@ -1,11 +1,10 @@
-#    **POC of Static Code Analysis in ReactJs CI Checks** 
+#    **POC of Static Code Analysis in React js CI Checks** 
 
 ![image](https://github.com/user-attachments/assets/8107c96f-b45b-4b61-81cc-05f729a6f678)
 
 | **Author** | **Created on** | **Version** | **Last updated by**|**Last Edited On**|**Level** |**Reviewer** |
 |------------|---------------------------|-------------|----------------|-----|-------------|-------------|
-
-
+| Aayush Verma|  08-03-2025           | v1         | Aayush Verma   | 08-03-2025    |  internal review | komal jaiswal | 
 
 
 
