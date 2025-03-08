@@ -1,4 +1,4 @@
-#    **POC of Static Code Anaylysis in Java CI Checks**
+#    **POC of Static Code Analysis in Java CI Checks** 
 
 ![image](https://github.com/user-attachments/assets/8107c96f-b45b-4b61-81cc-05f729a6f678)
 
