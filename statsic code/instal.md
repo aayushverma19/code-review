@@ -69,14 +69,14 @@ Static code analysis is the process of reviewing code without running it. It hel
 
 ---
 
-## **Tools for Static Code Analysis**
+## **Tools for Static Code Analysis**  
 
-| **Tool**               | **Description**                                                                 |
-|-------------------------|---------------------------------------------------------------------------------|
-| **SonarQube**           | Supports multiple languages and offers extensive integration options.           |
-| **Checkstyle**          | Focuses on enforcing Java coding standards.                                    |
-| **PMD**                 | Detects unused variables, bugs, and other issues.                              |
-| **FindBugs/SpotBugs**   | A tool for finding bugs in Java programs.                                      |
+| Tool         | Description  |  
+|-------------|-------------|  
+| ESLint      | A widely used tool for identifying and fixing problems in JavaScript and React code. Supports custom rules and integrations. |  
+| Prettier    | Ensures consistent code formatting automatically. Works well alongside ESLint. |  
+| SonarQube   | Provides deep code quality analysis, including security vulnerabilities and maintainability issues for JavaScript and TypeScript. |  
+| Stylelint   | Lints CSS and SCSS, helping enforce consistent styling practices in React applications. |  
 
 ---
 
@@ -84,20 +84,24 @@ Static code analysis is the process of reviewing code without running it. It hel
 
 ## **Comparison of Tools**
 
-| **Feature**            | **SonarQube** | **Checkstyle** | **PMD** | **FindBugs/SpotBugs** |
-|-------------------------|---------------|----------------|---------|-----------------------|
-| **Language Support**    | Multi         | Java           | Multi   | Java                  |
-| **Security Checks**     | Yes           | No             | Yes     | Limited               |
-| **Integration Options** | Extensive     | Moderate       | Good    | Limited               |
-| **Ease of Use**         | Moderate      | High           | High    | High                  |
-| **Community**           | Large         | Medium         | Medium  | Large                 |
-| **Cost**                | Paid/Free     | Free           | Free    | Free                  |
-| **User Interface**      | Advanced      | Basic          | Basic   | Basic                 |
+
+| **Feature**            | **ESLint**     | **Prettier**    | **SonarQube** | **Stylelint**  | 
+|------------------------|---------------|----------------|---------------|---------------|
+| **Language Support**   | JavaScript, TypeScript | JavaScript, TypeScript | Multi        | CSS, SCSS, LESS | 
+| **Security Checks**    | Yes           | No             | Yes           | No            | 
+| **Integration Options** | Extensive     | Extensive      | Extensive     | Moderate      |  
+| **Ease of Use**        | Moderate      | High           | Moderate      | High          | 
+| **Community**         | Large         | Large          | Large         | Medium        |
+| **Cost**               | Free          | Free           | Paid/Free     | Free          |
+| **User Interface**     | CLI-based     | CLI-based      | Advanced      | CLI-based     |
+
+
 
 ___
 ## **POC**
 For a step-by-step guide on how to perform Static code Analysis in Java applications, check out our *Proof of Concept (POC)* document:  
-[Click here to view the POC](https://github.com/snaatak-Zero-Downtime-Crew/Documentation/blob/Nikita-SCRUM-70/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis/POC/README.md)
+[Click here to view the POC]()
+
 
 ## **Conclusion**
 
@@ -107,9 +111,7 @@ In this project, we are using SonarQube for static code analysis due to its abil
 
 ## **Contact Information**
 
-| **Name** | **Email address**            
-|----------|-------------------------------|
-| Nikita joshi    | Nikita.Joshi@mygurukulam.co |
+
 
 
 
