@@ -65,11 +65,10 @@ Update the default password after logging in.
 <img width="1440" alt="Screenshot 2025-03-01 at 11 10 14 PM" src="https://github.com/user-attachments/assets/4214e0bb-630b-44e4-8a4d-612778c66191" />
 
 
-___
 
 ## **Static Code Analysis**
 
-## **Step1. Go to SonarQube and select the project**
+### **Step1. Go to SonarQube and select the project**
 
 <img width="1440" alt="Screenshot 2025-03-01 at 11 11 20 PM" src="https://github.com/user-attachments/assets/aeccab58-f9c9-4f50-8e46-1542883034df" />
 
@@ -77,42 +76,35 @@ ___
 
 ![image](https://github.com/user-attachments/assets/4ee4a13d-74eb-4603-843a-1c45ace78c21)
 
-___
 
-## **Step2. Configure the Project**
- Prepare your project for analysis by configuring the necessary files<br/>
-
-![image](https://github.com/user-attachments/assets/038f90ae-92d1-44ff-9ee6-afa780561bbc)
-
-___
-## **Step3. Generate Token**
+### **Step2. Generate Token**
 Copy the generated token for authentication during analysis.<br/>
 
-
-![image](https://github.com/user-attachments/assets/c90f31f1-7071-410f-94f1-cd384e6db8d8)
-___
+![image](https://github.com/user-attachments/assets/bff56db8-2838-48ff-8ede-44e68feda4cf)
 
 
-## **Step4. Run Analysis**
+
+
+## **Step3. Run Analysis**
 Execute the analysis on your project.<br/>
 
-![image](https://github.com/user-attachments/assets/4e6dfb83-84ec-49a7-86d0-92c53d7a4a70)
+
+![image](https://github.com/user-attachments/assets/0d5f1fb3-fb55-449d-b422-ecc8f16b15df)
 
 
-___
 
-## **Step5. Result**
+## **Step4. Result**
 Review the analysis results in the SonarQube interface.<br/>
 
 ![image](https://github.com/user-attachments/assets/c60a73d9-937e-4f70-a53d-af432db2130e)
 
 
-___
+
 
 ## **Conclusion**.
 
 In this project, we are using SonarQube for static code analysis due to its ability to identify bugs, vulnerabilities, and code smells early in the development process. It ensures clean, secure, and maintainable code while integrating seamlessly with CI/CD pipelines, providing detailed reports and actionable insights to reduce technical debt and improve overall project reliability
-___
+
 
 ## **Contact Information**
 
