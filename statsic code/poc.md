@@ -107,7 +107,9 @@ In this project, we are using SonarQube for static code analysis due to its abil
 
 ## **Contact Information**
 
-
+| **Name**       | **Email Address**        |
+|----------------|--------------------------|
+| Aayush Verma   | <aayush.verma@mygurukulam.co> |
 
 ___
 ## **References**
