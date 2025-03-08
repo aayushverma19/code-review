@@ -32,14 +32,12 @@
 
 ## Install Sonarqube
 - Here we use Sonarqube for static code analysis.To install sonarqube on your system, please follow the link below for the Sonarqube Installation Guide. :-[sonarqube Installation Guide](https://github.com/snaatak-Zero-Downtime-Crew/Documentation/blob/Rohit-SCRUM-77/Common/Software%20/Sonarqube/Installation/README.md)
-___
 
 
 ## Configure sonarqube
 
 - Sonarqube is used for static  code analysis. Please follow the link below for Sonarqube configuration. [sonarqube Configuration](https://github.com/snaatak-Zero-Downtime-Crew/Documentation/blob/Rohit-SCRUM-77/Common/Software%20/Sonarqube/Configuration/README.md)
 
-___
 
 ## **Accessing SonarQube**
 
@@ -53,6 +51,7 @@ http://100.26.240.39:9000
 
 ![image](https://github.com/user-attachments/assets/861bb0fb-5295-4fc2-9670-d6c1395a2fcd)
 ___
+
 ### **Step2. Change Password**
 
 
