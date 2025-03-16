@@ -1,0 +1,172 @@
+---
+- name: Setup SonarQube on Ubuntu
+  hosts: all
+  become: yes
+  vars:
+   
+    postgresql_version: "latest"
+    postgresql_repo: "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
+    postgresql_signing_key: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+    db_name: "sonar"
+    db_user: "sonar"
+    db_password: "mwd#2%#!!#%rg"
+    sonarqube_version: "10.0.0.68432"
+    sonarqube_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonarqube_version }}.zip"
+    sonarqube_install_dir: "/opt"
+    sonarqube_dir: "{{ sonarqube_install_dir }}/sonarqube"
+    sonarqube_user: "sona"
+    sonarqube_group: "sona"
+    vm_max_map_count: "262144"
+    fs_file_max: "65536"
+    nofile_limit: "65536"
+    nproc_limit: "4096"
+
+  tasks:
+    - name: Update the package lists
+      apt:
+        update_cache: yes
+
+    - name: Install OpenJDK 17
+      apt:
+        name: openjdk-17-jdk
+        state: present
+
+    - name: Add PostgreSQL repository
+      shell: echo "{{ postgresql_repo }}" > /etc/apt/sources.list.d/pgdg.list
+
+    - name: Add PostgreSQL signing key
+      shell: wget -qO - {{ postgresql_signing_key }} | apt-key add -
+
+    - name: Install PostgreSQL
+      apt:
+        name:
+          - postgresql
+          - postgresql-contrib
+        state: present
+        update_cache: yes
+
+    - name: Enable PostgreSQL service
+      systemd:
+        name: postgresql
+        enabled: yes
+
+    - name: Start PostgreSQL service
+      systemd:
+        name: postgresql
+        state: started
+
+    - name: Create PostgreSQL user
+      command: sudo -u postgres psql -c "CREATE USER {{ db_user }} WITH ENCRYPTED PASSWORD '{{ db_password }}';"
+      ignore_errors: yes
+
+    - name: Create SonarQube database
+      command: sudo -u postgres psql -c "CREATE DATABASE {{ db_name }} OWNER {{ db_user }};"
+      ignore_errors: yes
+
+    - name: Grant privileges on SonarQube database
+      command: sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE {{ db_name }} TO {{ db_user }};"
+      ignore_errors: yes
+
+    - name: Install zip utility
+      apt:
+        name: zip
+        state: present
+
+    - name: Download SonarQube
+      get_url:
+        url: "{{ sonarqube_download_url }}"
+        dest: /tmp/sonarqube.zip
+
+    - name: Unzip SonarQube
+      unarchive:
+        src: /tmp/sonarqube.zip
+        dest: "{{ sonarqube_install_dir }}/"
+        remote_src: yes
+
+    - name: Rename SonarQube folder
+      command: mv {{ sonarqube_install_dir }}/sonarqube-{{ sonarqube_version }} {{ sonarqube_dir }}
+      args:
+        creates: "{{ sonarqube_dir }}"
+
+    - name: Create SonarQube group
+      group:
+        name: "{{ sonarqube_group }}"
+        state: present
+
+    - name: Create SonarQube user
+      user:
+        name: "{{ sonarqube_user }}"
+        group: "{{ sonarqube_group }}"
+        home: "{{ sonarqube_dir }}"
+        shell: /bin/bash
+        createhome: no
+
+    - name: Set ownership of SonarQube directory
+      file:
+        path: "{{ sonarqube_dir }}"
+        owner: "{{ sonarqube_user }}"
+        group: "{{ sonarqube_group }}"
+        recurse: yes
+
+    - name: Configure SonarQube database connection
+      lineinfile:
+        path: "{{ sonarqube_dir }}/conf/sonar.properties"
+        regexp: "^#?{{ item.key }}="
+        line: "{{ item.key }}={{ item.value }}"
+      loop:
+        - { key: 'sonar.jdbc.username', value: '{{ db_user }}' }
+        - { key: 'sonar.jdbc.password', value: '{{ db_password }}' }
+        - { key: 'sonar.jdbc.url', value: 'jdbc:postgresql://localhost:5432/{{ db_name }}' }
+
+    - name: Configure SonarQube to run as specified user
+      lineinfile:
+        path: "{{ sonarqube_dir }}/bin/linux-x86-64/sonar.sh"
+        line: "RUN_AS_USER={{ sonarqube_user }}"
+
+    - name: Create SonarQube systemd service file
+      copy:
+        dest: /etc/systemd/system/sonar.service
+        content: |
+          [Unit]
+          Description=SonarQube service
+          After=syslog.target network.target
+          [Service]
+          Type=forking
+          ExecStart={{ sonarqube_dir }}/bin/linux-x86-64/sonar.sh start
+          ExecStop={{ sonarqube_dir }}/bin/linux-x86-64/sonar.sh stop
+          User={{ sonarqube_user }}
+          Group={{ sonarqube_group }}
+          Restart=always
+          LimitNOFILE={{ nofile_limit }}
+          LimitNPROC={{ nproc_limit }}
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Enable SonarQube service
+      systemd:
+        name: sonar
+        enabled: yes
+        daemon_reload: yes
+
+    - name: Start SonarQube service
+      systemd:
+        name: sonar
+        state: started
+
+    - name: Modify Kernel System Limits
+      sysctl:
+        name: "{{ item.key }}"
+        value: "{{ item.value }}"
+        sysctl_set: yes
+      loop:
+        - { key: 'vm.max_map_count', value: '{{ vm_max_map_count }}' }
+        - { key: 'fs.file-max', value: '{{ fs_file_max }}' }
+
+    - name: Modify ulimit settings
+      lineinfile:
+        path: /etc/security/limits.conf
+        line: "* hard nofile {{ nofile_limit }}"
+        insertafter: EOF
+
+    - name: Reboot the system
+      reboot:
