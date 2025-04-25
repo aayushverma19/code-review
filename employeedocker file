@@ -1,0 +1,22 @@
+#normal 
+
+FROM golang:1.21
+
+WORKDIR /go/src/employee-api
+
+COPY go.mod go.mod
+COPY go.sum go.sum  
+
+RUN go mod download
+COPY client/ client/
+COPY config/ config/
+COPY docs/ docs/ 
+COPY middleware/ middleware/
+COPY model/ model/
+COPY routes/ routes/
+COPY api/ api/
+COPY config.yaml config.yaml
+COPY main.go main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o employee-api main.go
+
+ENTRYPOINT ["/go/src/employee-api/employee-api"]
